@@ -1,5 +1,5 @@
 angular.module('dispatchModule', ['toastr'])
-.controller('dispatchController', function(toastr,$scope,$http,$location) {
+.controller('dispatchController', function(toastr,$scope,$http) {
   $scope.dispatch_fromdata="http://localhost:8080/inward/dispatchDisplayAll";
   $scope.dispatch_headers="Dispatch Date,Dispatch No, Inward No, Party, Component,Material,Qty/Kg,Qty/No,Rate/Kg,Rate/No,Total";
   $scope.dispatch_fields="creationDate,dispatchNo,inwardNo,party,component,material,qtyKgs,qtyNos,rateKg,rateNos,total";
@@ -16,21 +16,24 @@ angular.module('dispatchModule', ['toastr'])
                 });
         };
 
-        $scope.tcForRec = function() {
-            var selectedRec = $scope.report.selected;
-            console.log(selectedRec);
 
-            $scope.selectedRecForTc = selectedRec;
-            console.log( $location.path('/newtc').search({dispatchNo: selectedRec.dispatchNo, componentId: selectedRec.componentId}));
-
-
-        }
 
       $scope.ok = function() {
         //console.log($scope.exportDataVariable);
         var selectedRec = $scope.report.selected;
           console.log(selectedRec);
           //if(checkIfCanBeInvoiced(selectedRec)){
+
+          //var url = 'http://localhost:8080/tc/component/'+selectedRec.componentId;
+          //$http.post(url,null)
+          //    .success(function(data) {//delete if success
+          //        toastr.success('Added TC');
+          //        //$scope.exportDataVariable = data;
+          //    }).error(function(data){
+          //        toastr.error('Error in adding TC');
+          //    });
+
+
               invoiceSelectedDispatches(selectedRec);
           //}
           //else{
@@ -39,13 +42,15 @@ angular.module('dispatchModule', ['toastr'])
       };
 
 
+
+
         invoiceSelectedDispatches = function(record) {
 
             var invoiceRecord={};
             invoiceRecord.inwardNo=record.inwardNo;
             invoiceRecord.party=record.party;
             invoiceRecord.dispatchNo=record.dispatchNo;
-            invoiceRecord.component=record.component;
+            invoiceRecord.componentName=record.component;
             invoiceRecord.material=record.material;
             invoiceRecord.qtyKgs=record.qtyKgs;
             invoiceRecord.qtyNos=record.qtyNos;
@@ -55,17 +60,16 @@ angular.module('dispatchModule', ['toastr'])
             invoiceRecord.componentId=record.componentId;
 
 
-
-                var url = 'http://localhost:8080/invoice/';
+            var url = 'http://localhost:8080/invoice/component/'+invoiceRecord.componentId;
                 $http.post(url,invoiceRecord)
                     .success(function(data) {//delete if success
 
-                        toastr.success('Update Success');
+                        toastr.success('Invoice Generated Successfully');
                         updateDataGrid();
                         $scope.report.selected=[];
                     }).error(function(data){//dont if no success
                        // updateDataGrid();
-                        toastr.error("Cannot Update : Error in quantity entered for inward : ");
+                        toastr.error("Cannot Update : Error occured ");
                         updateDataGrid();
                         $scope.report.selected=[];
                     });

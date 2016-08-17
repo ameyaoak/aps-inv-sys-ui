@@ -1,18 +1,10 @@
 angular.module('newTcModule', ['toastr' ])
     .controller('newTcController', function(toastr,$scope,$http,$routeParams) {
 
-        $scope.tc_fromdata="http://localhost:8080/component/tcGrid/"+$routeParams.componentId;
+        $scope.tc_fromdata="http://localhost:8080/tc/"+$routeParams.tcNo;
         $scope.tc_headers="Particulars,Test Location,Test Method,Qty Checked, Specification, Observations, Remarks,Checked By";
         $scope.tc_fields="particular,testLocation,testMethod,qty,actuals,observations,remark,checkedBy";
         $scope.tc_button1="Invoice";
-
-        console.log($routeParams.dispatchNo);
-        console.log($routeParams.componentId);
-
-
-
-
-
 
         $scope.save = function() {
 
@@ -77,12 +69,12 @@ angular.module('newTcModule', ['toastr' ])
 
          saveTCGrid = function(tcRow) {
             var url = 'http://localhost:8080/tc';
-            $http.post(url,tcRow)
+            $http.put(url,tcRow)
                 .success(function(data) {//delete if success
-                    toastr.success('Added TC');
+                    toastr.success('Updated TC');
                     //$scope.exportDataVariable = data;
                 }).error(function(data){
-                    toastr.error('Error in adding TC');
+                    toastr.error('Error in updating TC');
                 });
         };
 

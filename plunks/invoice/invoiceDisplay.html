@@ -1,6 +1,6 @@
 <div class="no-print"><div>
   <div>
-    <button ng-click="ok()" class="btn btn-primary">{{invoice_button1}}</button>
+    <button ng-click="tcForRec()" class="btn btn-primary">{{invoice_button1}}</button>
     <button ng-click="clear()" class="btn btn-default">Clear</button>
   </div>
   <div>
@@ -15,7 +15,7 @@
              editable="false" resize="true"
              drag-columns="true"
              selected-model="report.selected"
-             select="multiply">
+             select="single">
 
 
       </table>
