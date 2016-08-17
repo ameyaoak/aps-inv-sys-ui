@@ -1,0 +1,37 @@
+<div>
+  <button ng-click="ok()" class="btn btn-primary">{{dispatch_button1}}</button>
+  <button ng-click="clear()" class="btn btn-default">Clear</button>
+  <button ng-click="tcForRec()" class="btn btn-primary">Invoice/TC</button>
+</div>
+<div>
+  <h4>Dispatch Details</h4><div>
+  <div>
+    <table object-table=""
+           from-url={{dispatch_fromdata}}
+           data="exportDataVariable" display="50"
+           headers={{dispatch_headers}}
+           fields={{dispatch_fields}}
+           sorting="compound"
+           editable="false" resize="true"
+           drag-columns="true"
+           selected-model="report.selected"
+           select="single">
+      <tbody>
+      <tr>
+        <td>{{item.creationDate}}</td>
+        <td>{{item.dispatchNo}}</td>
+        <td>{{item.inwardNo}}</td>
+        <td>{{item.party}}</td>
+        <td>{{item.component}}</td>
+        <td>{{item.material}}</td>
+        <td>{{item.qtyKgs}}</td>
+        <td>{{item.qtyNos}}</td>
+        <td>{{item.rateKg}}</td>
+        <td>{{item.rateNos}}</td>
+        <td>{{item.total}}</td>
+
+      </tr>
+      </tbody>
+
+    </table>
+  </div></div></div>

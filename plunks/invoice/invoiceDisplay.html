@@ -1,0 +1,32 @@
+<div class="no-print"><div>
+  <div>
+    <button ng-click="ok()" class="btn btn-primary">{{invoice_button1}}</button>
+    <button ng-click="clear()" class="btn btn-default">Clear</button>
+  </div>
+  <div>
+    <h4>Invoice Details</h4><div>
+    <div>
+      <table object-table=""
+             from-url={{invoice_fromdata}}
+             data="exportDataVariable" display="50"
+             headers={{invoice_headers}}
+             fields={{invoice_fields}}
+             sorting="compound"
+             editable="false" resize="true"
+             drag-columns="true"
+             selected-model="report.selected"
+             select="multiply">
+
+
+      </table>
+    </div></div></div>
+ </div></div>
+  
+  
+  <!-- Large modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+
+<a target="_blank" href="#inv">Link</a>
+</div>
+   
+  
