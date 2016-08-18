@@ -1,75 +1,23 @@
 angular.module('newTcModule', ['toastr' ])
     .controller('newTcController', function(toastr,$scope,$http,$routeParams) {
 
-        $scope.tc_fromdata="http://localhost:8080/tc/"+$routeParams.tcNo;
-        $scope.tc_headers="Particulars,Test Location,Test Method,Qty Checked, Specification, Observations, Remarks,Checked By";
-        $scope.tc_fields="particular,testLocation,testMethod,qty,actuals,observations,remark,checkedBy";
-        $scope.tc_button1="Invoice";
-
-        $scope.save = function() {
-
-            //var tcObject = {};
-            //
-            //
-            //tcObject.mm="";
-            //tcObject.cut="";
-            //tcObject.hv="";
-            //tcObject.loadVal="";
-            //
-            //
-            //
-            //var url = 'http://localhost:8080/tc';
-            //$http.post(url,tcObject)
-            //    .success(function(data) {//delete if success
-            //        toastr.success('Added TC');
-            //        $scope.tcNo=data.tcNo;
-            //    }).error(function(data){
-            //        toastr.error('Error in adding TC');
-            //    });
-
-
-
-            var gridRows=[];
-            var gridRow={};
-            var tcObject = {};
-
-
-            tcObject.mm=$scope.tc.mm;
-            tcObject.cut=$scope.tc.cut;
-            tcObject.hv=$scope.tc.hv;
-            tcObject.loadVal=$scope.tc.load;
-
-            _.each($scope.exportDataVariable, function(tcGridRow){
-
-                //gridRow.tcNo=$scope.tcNo;
-                gridRow.actuals=tcGridRow.actuals;
-                gridRow.observation=tcGridRow.observation;
-                gridRow.particular=tcGridRow.particular;
-                gridRow.testLocation=tcGridRow.testLocation;
-                gridRow.testMethod=tcGridRow.testMethod;
-                gridRow.qty=tcGridRow.qty;
-                gridRow.remark=tcGridRow.remark;
-                gridRow.checkedBy=tcGridRow.checkedBy;
-                gridRows.push(gridRow);
+        var url = "http://localhost:8080/tc/"+$routeParams.tcNo;
+        $http.get(url)
+            .success(function(data) {//delete if success
+                $scope.tc=data;
+                $scope.gridRows=data.gridRows;
+            }).error(function(data){
+                toastr.error('Error in getting TC');
             });
 
 
 
-            tcObject.gridRows=gridRows;
-            //tcObject.tcNo=$scope.tcNo;
 
+        $scope.save = function() {
+            var tcObject = $scope.tc;
 
-             saveTCGrid(tcObject);
-
-
-          //  $scope.exportDataVariable={};
-        };
-
-
-
-         saveTCGrid = function(tcRow) {
             var url = 'http://localhost:8080/tc';
-            $http.put(url,tcRow)
+            $http.put(url,tcObject)
                 .success(function(data) {//delete if success
                     toastr.success('Updated TC');
                     //$scope.exportDataVariable = data;
@@ -77,6 +25,7 @@ angular.module('newTcModule', ['toastr' ])
                     toastr.error('Error in updating TC');
                 });
         };
+
 
     })
     .directive('newTcForm', function() {
@@ -88,19 +37,6 @@ angular.module('newTcModule', ['toastr' ])
                 tabHead: '=',
             },
             link: function(scope, elem, attrs) {
-
-                //scope.ok = function() {
-                //  console.log(scope.report.selected);
-                //};
-
-
-                // scope.clear = function(customer) {
-                //   for (var i = 0; i < scope.cust.length; i++) {
-                //     cust[i].selectedRow === false;
-                //   }
-
-                // };
-
             }
 
         };

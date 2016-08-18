@@ -2,67 +2,99 @@
 <div class="modal-body">
     <div class="row">
         <form class="form-horizontal" name="tcForm" novalidate>
-<div class="col-md-3"><legend>Controller</legend>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-primary" ng-click="save()" ng-hide="edit">Save TC</button></label>
+                <label><button type="button" class="btn btn-primary" ng-click="update()" ng-show="edit">Update TC</button>
+                </label>
+            </div>
 
-    <button type="button" class="btn btn-primary" ng-click="save()" ng-hide="edit">Save TC</button></label>
-    <label><button type="button" class="btn btn-primary" ng-click="update()" ng-show="edit">Update TC</button>
-    </label>
-</div>
+            <div class="col-md-7">
 
-
-            <fieldset>
-
-                <div><h4>TC Details</h4></div>
-                <div>
-                    <table object-table=""
-                           from-url={{tc_fromdata}}
-                           data="exportDataVariable" display="50"
-                           headers={{tc_headers}}
-                           fields={{tc_fields}}
-                           editable="true" resize="true"
-                           drag-columns="true"
-                           selected-model="report.selected"
-                           resize="true">
-                        <tbody>
-                        <tr>
-                            <td>{{item.particular}}</td>
-                            <td editable>{{item.testLocation}}</td>
-                            <td editable>{{item.testMethod}}</td>
-                            <td editable>{{item.qty}}</td>
-                            <td>{{item.actuals}}</td>
-                            <td editable>{{item.observations}}</td>
-                            <td editable>{{item.remark}}</td>
-                            <td editable>{{item.checkedBy}}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <fieldset>
 
 
+                    <div><legend>TC Details</legend></div>
+                    <div>
+                        <table border="1">
+                            <tr>
+                                <th>Particulars</th><th>Test Location</th><th>Test Method</th><th>Qty Checked</th>
+                                <th>Specification</th><th>Observations</th><th>Remarks</th><th>Checked By</th>
+                            </tr>
+                            <tr ng-repeat="gridRow in gridRows">
+                                <td><input type="text" ng-model="gridRow.particular" readonly></td>
+                                <td><input type="text" ng-model="gridRow.testLocation"></td>
+                                <td><input type="text" ng-model="gridRow.testMethod"></td>
+                                <td><input type="text" ng-model="gridRow.qty"></td>
+                                <td><input type="text" ng-model="gridRow.actuals"></td>
+                                <td><input type="text" ng-model="gridRow.observation"></td>
+                                <td><input type="text" ng-model="gridRow.remark"></td>
+                                <td><input type="text" ng-model="gridRow.checkedBy"></td>
+                            </tr>
 
-                <div class="col-md-10"><legend>Micro Grid (, seperated)</legend>
-                   <div> <label> mm : <input type="text" ng-model="tc.mm"></label></div>
-                    <div><label> cut : <input type="text" ng-model="tc.cut"></label></div>
-                   <div> <label> hv : <input type="text" ng-model="tc.hv"></label></div>
-                    <div><label> load : <input type="text" ng-model="tc.load"></label></div>
-                    <!--<label> Crack : <input type="text" ng-model="dispatch.crack"></label>-->
-                    <!--<label> Distortation : <input type="text" ng-model="dispatch.distortation"></label>-->
-                    <!--<label> SF : <input type="text" ng-model="dispatch.sf"></label>-->
-                    <!--<label> WTT : <input type="text" ng-model="dispatch.wtt"></label>-->
-                    <!--<label> Layer Thickness : <input type="text" ng-model="dispatch.layerThickness"></label>-->
-                    <!--<label> Apperance : <input type="text" ng-model="dispatch.apperance"></label>-->
-                </div>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="clearfix">
+
+                        .
+
+                    </div>
 
 
+                    <div class="col-md-3"><legend>Carbon</legend>
+                        <div> <label> Carb-Act CP% : <input type="text" ng-model="tc.carbonActualCP"></label></div>
+                        <div><label> Carb-Act Time : <input type="text" ng-model="tc.carbonActualTime"></label></div>
+                        <div> <label> Carb-Diff : <input type="text" ng-model="tc.carbonDiff"></label></div>
+                        <div><label> Carb-Diff CP% : <input type="text" ng-model="tc.carbonDiffCP"></label></div>
+                        <div> <label> Carb-Diff Time : <input type="text" ng-model="tc.carbonDiffTime"></label></div>
+                    </div>
+                    <div class="col-md-3"><legend>Hardening</legend>
+                        <div><label> Temp : <input type="text" ng-model="tc.hardneningTemp"></label></div>
+                        <div> <label> CP% : <input type="text" ng-model="tc.hardneningCP"></label></div>
+                        <div><label>  Time : <input type="text" ng-model="tc.hardneningTime"></label></div>
+                    </div>
+                    <div class="col-md-3"><legend>Tempering</legend>
+                        <div> <label>  QOT Before : <input type="text" ng-model="tc.temperingQOTBefore"></label></div>
+                        <div><label> QOT After : <input type="text" ng-model="tc.temperingQOTAfter"></label></div>
+                        <div> <label> T1 Temp : <input type="text" ng-model="tc.temperingT1Temp"></label></div>
+                        <div><label> T1 Time : <input type="text" ng-model="tc.temperingT1Time"></label></div>
+                        <div> <label> T2 Temp : <input type="text" ng-model="tc.temperingT2Temp"></label></div>
+                        <div><label> T2 Time : <input type="text" ng-model="tc.temperingT2Time"></label></div>
+                    </div>
+                    <div class="col-md-3"><legend>Ann/Norm</legend>
+                        <div> <label> Ann. Temp : <input type="text" ng-model="tc.annTemp"></label></div>
+                        <div><label> Ann. Time : <input type="text" ng-model="tc.annTime"></label></div>
+                        <div> <label> Norm Temp : <input type="text" ng-model="tc.normTemp"></label></div>
+                        <div><label> Norm Time : <input type="text" ng-model="tc.normTime"></label></div>
+                        <div><label>Total Batch Time : <input type="text" ng-model="tc.totalBatchTime"></label></div>
+                        <!--<label> Crack : <input type="text" ng-model="dispatch.crack"></label>-->
+                        <!--<label> Distortation : <input type="text" ng-model="dispatch.distortation"></label>-->
+                        <!--<label> SF : <input type="text" ng-model="dispatch.sf"></label>-->
+                        <!--<label> WTT : <input type="text" ng-model="dispatch.wtt"></label>-->
+                        <!--<label> Layer Thickness : <input type="text" ng-model="dispatch.layerThickness"></label>-->
+                        <!--<label> Apperance : <input type="text" ng-model="dispatch.apperance"></label>-->
+                    </div>
 
-            </fieldset>
+                    <div class="col-md-12"><legend>Micro Grid (, seperated)</legend>
+                        <div> <label> mm : <input type="text" ng-model="tc.mm"></label></div>
+                        <div><label> cut : <input type="text" ng-model="tc.cut"></label></div>
+                        <div> <label> hv : <input type="text" ng-model="tc.hv"></label></div>
+                        <div><label> load : <input type="text" ng-model="tc.loadVal"></label></div>
+                        <!--<label> Crack : <input type="text" ng-model="dispatch.crack"></label>-->
+                        <!--<label> Distortation : <input type="text" ng-model="dispatch.distortation"></label>-->
+                        <!--<label> SF : <input type="text" ng-model="dispatch.sf"></label>-->
+                        <!--<label> WTT : <input type="text" ng-model="dispatch.wtt"></label>-->
+                        <!--<label> Layer Thickness : <input type="text" ng-model="dispatch.layerThickness"></label>-->
+                        <!--<label> Apperance : <input type="text" ng-model="dispatch.apperance"></label>-->
+                    </div>
 
+                </fieldset>
 
+            </div>
 
 
         </form>
     </div>
 </div>
-
-
-	<!--Carb-Act CP%	Carb-Act Time	Carb-Diff Temp °C	Carb-Diff CP%	Carb-Diff Time	Hardening Temp °C	Hardening CP%	Hardening Time	QOT Before	QOT After	Tempering 1 Temp °C	Tempering 1 Time	Tempering 2 Temp °C	Tempering 2 Time	Ann. Temp °C	Ann. Time	Norm Temp °C	Norm Time	Total Batch Time-->
+<!--QOT Before	QOT After	Tempering 1 Temp °C	Tempering 1 Time	Tempering 2 Temp °C	Tempering 2 Time	Ann. Temp °C	Ann. Time	Norm Temp °C	Norm Time	Total Batch Time-->
