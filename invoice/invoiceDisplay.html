@@ -1,8 +1,8 @@
 <div class="no-print"><div>
   <div>
-    <button ng-click="tcForRec()" class="btn btn-primary">{{invoice_button1}}</button>
-    <button ng-click="clear()" class="btn btn-default">Clear</button>
-    <button ng-click="report()" class="btn btn-default">Make Report</button>
+      <button ng-click="report()" class="btn btn-primary">Make Report</button>
+      <button ng-click="clear()" class="btn btn-default">Clear</button>
+      <button ng-click="tcForRec()" class="btn btn-link">{{invoice_button1}}</button>
 
   </div>
   <div>
@@ -17,18 +17,13 @@
              editable="false" resize="true"
              drag-columns="true"
              selected-model="report.selected"
-             select="single">
+             select="single"
+             resize="true">
 
 
       </table>
     </div></div></div>
  </div></div>
-  
-  
-  <!-- Large modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
 
-<a target="_blank" href="#inv">Link</a>
 </div>
    
-  

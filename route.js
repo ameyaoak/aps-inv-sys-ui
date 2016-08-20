@@ -1,5 +1,5 @@
 	// create the module and name it scotchApp
-	var app = angular.module('apsApp', ['ngRoute','objectTable','loginModule','chartModule','mainModule','inwardModule','dispatchModule','invoiceModule','newInwardModule','newTcModule','tcTableModule','partyModule','componentModule','chartModule','underscore','toastr']);
+	var app = angular.module('apsApp', ['ngRoute','objectTable','loginModule','chartModule','inwardModule','mainModule','dispatchModule','invoiceModule','newInwardModule','newTcModule','tcTableModule','partyModule','componentModule','chartModule','underscore','toastr']);
 	// configure our routes
   
  
@@ -32,8 +32,8 @@
 			.when('/invoice', { 
 				templateUrl : 'invoice/invoiceDisplay.html',
 				controller  : 'invoiceController'
-			}) 
-			.when('/inv', { 
+			})
+			.when('/inv', {
 				templateUrl : 'report/inv.html',
 				controller  : 'mainController'
 			})

@@ -7,50 +7,25 @@ angular.module('invoiceModule', ['chartModule' ])
 
         $scope.tcForRec = function() {
             var selectedRec = $scope.report.selected;
-            console.log(selectedRec);
-
             $scope.selectedRecForTc = selectedRec;
-            console.log( $location.path('/newtc').search({tcNo: selectedRec.testCertificate.tcNo}));
+            if(selectedRec.testCertificate!=undefined){
+               $location.path('/newtc').search({tcNo: selectedRec.testCertificate.tcNo});
+            }
 
 
-        }
+        };
 
         $scope.report = function() {
             var selectedRec = $scope.report.selected;
-            console.log(selectedRec.inwardNo);
-
             $scope.selectedRecForTc = selectedRec;
-            console.log( $location.path('/inv').search({invoiceNo: selectedRec.invoiceNo}));
-
-
-        }
-
-
-
-    })
-    .directive('invoiceDisplay', function() {
-        return {
-            restrict: 'E',
-            templateUrl: 'pages/invoiceDisplay.html',
-            scope: {
-                cust: '=',
-                tabHead: '=',
-            },
-            link: function(scope, elem, attrs) {
-
-                scope.ok = function() {
-                    console.log(scope);
-                };
-
-
-                scope.clear = function(customer) {
-                    for (var i = 0; i < scope.cust.length; i++) {
-                        cust[i].selectedRow === false;
-                    }
-
-                };
-
+            if(selectedRec.invoiceNo!=undefined) {
+               $location.path('/inv').search({invoiceNo: selectedRec.invoiceNo});
             }
-
         };
-    })
+
+        $scope.clear = function (selectedRecord) {
+            $scope.report.selected = []
+        };
+
+
+    });

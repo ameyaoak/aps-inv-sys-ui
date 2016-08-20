@@ -4,7 +4,7 @@ function initChartConfig(data) {
         xAxis:
         {
 
-            categories: data.microGrid.mm,
+            categories: data.mm,
             title:{text:'mm'}
         },title: {
             text: null
@@ -54,14 +54,14 @@ function initChartConfig(data) {
                 name: 'hv',
                 type:'line',
                 yaxis:1,
-                data: data.microGrid.hv
+                data: data.hv
 
             },
             {
                 name: 'cut',
                 yaxis:2,
                 type:'line',
-                data: data.microGrid.cut
+                data: data.cut
 
             }]
     };

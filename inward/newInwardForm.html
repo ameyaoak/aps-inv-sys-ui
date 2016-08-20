@@ -17,23 +17,23 @@
                     <p ng-show="newInwardForm.selectedComponent.$invalid && !newInwardForm.selectedComponent.$pristine" class="validation-block">Party is required.</p>
 
 
-                    <label> Material : <input type="text"  ng-model="selectedComponent.material"></label>
-                    <label> Part No : <input type="text"  ng-model="selectedComponent.partNo"></label>
-                    <label> Process : <input type="text"  ng-model="selectedComponent.process"></label>
-                    <label> PO No  : <input type="text"  ng-model="selectedComponent.poNo"></label>
-                    <label> PO Date : <input type="text"  ng-model="selectedComponent.poDate" placeholder="like 01-Aug-2016"></label>
-                    <label> Version : <input type="text" ng-model="selectedComponent.version"></label>
+                    <label> Material : <input type="text"  ng-model="selectedComponent.material" readonly></label>
+                    <label> Part No : <input type="text"  ng-model="selectedComponent.partNo" readonly></label>
+                    <label> Process : <input type="text"  ng-model="selectedComponent.process" readonly></label>
+                    <label> PO No  : <input type="text"  ng-model="selectedComponent.poNo" readonly></label>
+                    <label> PO Date : <input type="text"  ng-model="selectedComponent.poDate" readonly></label>
+                    <label> Version : <input type="text" ng-model="selectedComponent.version" readonly></label>
                 </div>
                 <div class="col-md-3"><legend>Component Specs</legend>
-                    <label> Core Hd : <input type="text" ng-model="selectedComponent.coreHd"></label>
-                    <label> Surface Hd : <input type="text" ng-model="selectedComponent.surfaceHd"></label>
-                    <label> Case Depth : <input type="text" ng-model="selectedComponent.caseDepth"></label>
-                    <label> Crack : <input type="text" ng-model="selectedComponent.crack"></label>
-                    <label> Distortation : <input type="text" ng-model="selectedComponent.distortation"></label>
-                    <label> SF : <input type="text" ng-model="selectedComponent.sf"></label>
-                    <label> WTT : <input type="text" ng-model="selectedComponent.wtt"></label>
-                    <label> Layer Thickness : <input type="text" ng-model="selectedComponent.layerThickness"></label>
-                    <label> Apperance : <input type="text" ng-model="selectedComponent.apperance"></label>
+                    <label> Core Hd : <input type="text" ng-model="selectedComponent.coreHd"  readonly></label>
+                    <label> Surface Hd : <input type="text" ng-model="selectedComponent.surfaceHd" readonly></label>
+                    <label> Case Depth : <input type="text" ng-model="selectedComponent.caseDepth" readonly></label>
+                    <label> Crack : <input type="text" ng-model="selectedComponent.crack" readonly></label>
+                    <label> Distortation : <input type="text" ng-model="selectedComponent.distortation" readonly></label>
+                    <label> SF : <input type="text" ng-model="selectedComponent.sf" readonly></label>
+                    <label> WTT : <input type="text" ng-model="selectedComponent.wtt" readonly></label>
+                    <label> Layer Thickness : <input type="text" ng-model="selectedComponent.layerThickness" readonly></label>
+                    <label> Apperance : <input type="text" ng-model="selectedComponent.apperance" readonly></label>
                 </div>
                 <div class="col-md-3"><legend>Quantity and Rate</legend>
                     <label>Qty Kg :
@@ -41,11 +41,11 @@
                         <p ng-show="selectedComponent.qtyNos.$invalid && !selectedComponent.qtyNos.$pristine" class="validation-block">Quantity in Nos is required.</p>
                     </label>
                     <label>Qty No :
-                        <input type="numebr" ng-model="selectedComponent.qtyKgs" placeholder="Required" required>
+                        <input type="number" ng-model="selectedComponent.qtyKgs" placeholder="Required" required>
                         <p ng-show="selectedComponent.qtyKgs.$invalid && !selectedComponent.qtyKgs.$pristine" class="validation-block">Quantity in Kgs is required.</p>
                     </label>
-                    <label> Rate Kg : <input type=number ng-model="selectedComponent.rateKg" required></label>
-                    <label> Rate No : <input type=number ng-model="selectedComponent.rateNos" required></label>
+                    <label> Rate Kg : <input type=number ng-model="selectedComponent.rateKg" required readonly></label>
+                    <label> Rate No : <input type=number ng-model="selectedComponent.rateNos" required readonly></label>
                     <label>
                         <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="newInwardForm.$invalid" ng-hide="edit">Save to Inward</button></label>
                     <label><button type="button" class="btn btn-primary" ng-click="update()" ng-disabled="newInwardForm.$invalid" ng-show="edit">Update to Inward</button>

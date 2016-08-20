@@ -27,17 +27,4 @@ angular.module('newTcModule', ['toastr' ])
         };
 
 
-    })
-    .directive('newTcForm', function() {
-        return {
-            restrict: 'E',
-            templateUrl: 'newTcForm.html',
-            scope: {
-                cust: '=',
-                tabHead: '=',
-            },
-            link: function(scope, elem, attrs) {
-            }
-
-        };
-    })
+    }) ;
