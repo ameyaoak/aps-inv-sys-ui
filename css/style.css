@@ -18,22 +18,42 @@
 .microPic{max-width:120px; max-height:120px;} 
 .microGraph{max-width:450px; max-height:300px;} 
 
+/*.dropzone {*/
+ /*max-width:180px; max-height:180px;*/
+  /*border: 1px solid #2165a3;*/
+  /*text-align: center;*/
+  /*padding: 30px; */
+  /*margin: 20px;*/
+  /*font-family: Arial;*/
+/*}*/
+
+/*.image-container {*/
+    /*max-width:200px; max-height:200px;padding-left:5px;padding-right:5px;*/
+/*}*/
+
 .dropzone {
- max-width:180px; max-height:180px;
-  border: 1px solid #2165a3;
-  text-align: center;
-  padding: 30px; 
-  margin: 20px;
-  font-family: Arial;
+    width: 10px;
+    height: 50px;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 30px;
+    margin: 20px;
+    font-family: Arial;
 }
 
 .image-container {
-    max-width:200px; max-height:200px;padding-left:5px;padding-right:5px;
+    width: 400px;
+    height: 200px;
 }
- 
- 
+
+.image-container img {
+
+    max-width:400px;
+    max-height:200px;
+}
+
 .file-name {
-   font-family: Arial;   
+    font-family: Arial;
 }
 
 #container{

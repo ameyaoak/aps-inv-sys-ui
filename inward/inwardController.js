@@ -13,7 +13,7 @@ angular.module('inwardModule', ['toastr' ])
             var actualRec;
             if(selectedRec.inwardNo!=undefined) {
                 compareWithActualSelectedRecord(selectedRec);
-                toastr.success('Dispatched Successfully');
+
             }
         };
 
@@ -31,9 +31,13 @@ angular.module('inwardModule', ['toastr' ])
                         data.qtyNos=newQtyNos;
 
                         updateInwardWithBalanceQty(data);
+                        toastr.success('Dispatched Successfully');
 
 
                         //toastr.success('Update Success');
+                    }
+                    else{
+                        toastr.error("Qty Error in inward");
                     }
                     //$scope.parties[id-1]=data;
                 }).error(function(data){

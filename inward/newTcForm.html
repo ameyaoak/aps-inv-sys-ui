@@ -23,7 +23,7 @@
                                 <th>Checked By</th>
                             </tr>
                             <tr ng-repeat="gridRow in gridRows">
-                                <td><input type="text" ng-model="gridRow.particular" readonly></td>
+                                <td><input type="text" ng-model="gridRow.particular"></td>
                                 <td><input type="text" ng-model="gridRow.testLocation"></td>
                                 <td><input type="text" ng-model="gridRow.testMethod"></td>
                                 <td><input type="text" ng-model="gridRow.qty"></td>
@@ -44,8 +44,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <legend>Carbon</legend>
-                            <div><label> Carb-Act CP% : <input type="text" ng-model="tc.carbonActualCP"
-                                                               readonly></label></div>
+                            <div><label> Carb-Act CP% : <input type="text" ng-model="tc.carbonActualCP"></label></div>
                             <div><label> Carb-Act Time : <input type="text" ng-model="tc.carbonActualTime"></label>
                             </div>
                             <div><label> Carb-Diff : <input type="text" ng-model="tc.carbonDiff"></label></div>
@@ -85,8 +84,12 @@
                             <div><label> hv : <input type="text" ng-model="tc.hv"></label></div>
                             <div><label> load : <input type="text" ng-model="tc.loadVal"></label></div>
                         </div>
-                        <div class="col-md-9">
-                            <legend>Remarks</legend>
+                        <div class="col-md-3">
+                            <legend>Batch Info</legend>
+                            <div><label> Ref Std : <input type="text" ng-model="tc.refStd"></label></div>
+                            <div><label> Heat Code : <input type="text" ng-model="tc.heatCode"></label></div>
+                            <div><label> Batch No : <input type="text" ng-model="tc.batchNo"></label></div>
+                            <div><label> Furnace : <input type="text" ng-model="tc.furnace"></label></div>
                             <div><label> Final Disposition : <input type="text" ng-model="tc.finalDisposition"></label>
                             </div>
                         </div>

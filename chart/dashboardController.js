@@ -1,68 +1,66 @@
 function initChartConfig(data) {
+    if(data!=undefined) {
+        return {
+            xAxis: {
 
-    return{
-        xAxis:
-        {
-
-            categories: data.mm,
-            title:{text:'mm'}
-        },title: {
-            text: null
-        },            subtitle: {
-            text: null
-        },
-
-        yAxis: { title: { text: 'hv/cut' },tickInterval: 10,min:0 },
-        tooltip: { valueSuffix: ' ' },
-        legend: { align: 'right', layout: 'vertical', verticalAlign: 'middle', borderWidth: 0 },
-        plotOptions: {
-            area: {
-                fillColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
-                    stops: [
-                        [0, Highcharts.getOptions().colors[0]],
-                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                    ]
-                },
-                marker: {
-                    radius: 2
-
-                },
-                lineWidth: 1,
-                states: {
-                    hover: {
-                        lineWidth: 1
-                    }
-                },
-                threshold: null
+                categories: data.mm,
+                title: {text: 'mm'}
+            }, title: {
+                text: null
+            }, subtitle: {
+                text: null
             },
-            line: {
-                dataLabels: {
-                    enabled: true
+
+            yAxis: {title: {text: 'hv/cut'}, tickInterval: 10, min: 0},
+            tooltip: {valueSuffix: ' '},
+            legend: {align: 'right', layout: 'vertical', verticalAlign: 'middle', borderWidth: 0},
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: {x1: 0, y1: 0, x2: 0, y2: 1},
+                        stops: [
+                            [0, Highcharts.getOptions().colors[0]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    marker: {
+                        radius: 2
+
+                    },
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
                 },
-                enableMouseTracking: false
-            }
-
-        },
-        credits: {
-            enabled: false
-        },
-        series: [
-            {
-
-
-                name: 'hv',
-                type:'line',
-                yaxis:1,
-                data: data.hv
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
 
             },
-            {
-                name: 'cut',
-                yaxis:2,
-                type:'line',
-                data: data.cut
+            credits: {
+                enabled: false
+            },
+            series: [
+                {
+                    name: 'hv',
+                    type: 'line',
+                    yaxis: 1,
+                    data: data.hv
 
-            }]
-    };
+                },
+                {
+                    name: 'cut',
+                    yaxis: 2,
+                    type: 'line',
+                    data: data.cut
+
+                }]
+        };
+    }
 }

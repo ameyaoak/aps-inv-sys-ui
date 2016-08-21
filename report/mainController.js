@@ -1,158 +1,140 @@
  angular.module('mainModule', ['toastr' ])
     .controller('mainController', function(toastr,$scope,$http,$routeParams) {
 
-        var url = "http://localhost:8080/invoice/"+$routeParams.invoiceNo;
-              $http.get(url)
-                 .success(function (data) {//delete if success
-                     $scope.inv = data;
-                     $scope.inv.testCertificate.mm = JSON.parse("[" + data.testCertificate.mm + "]");
-                     $scope.inv.testCertificate.hv = JSON.parse("[" + data.testCertificate.hv + "]");
-                     $scope.inv.testCertificate.cut = JSON.parse("[" + data.testCertificate.cut + "]");
-                     $scope.numberToWords($scope.inv.total);
-                     $scope.chartConfig = initChartConfig(data.testCertificate);
-                 }).error(function (data) {
-                     // toastr.error('Error in getting TC');
-                 });
+        if($routeParams.inwardNo!=undefined) {
+            var url = "http://localhost:8080/inward/" + $routeParams.inwardNo;
+            $http.get(url)
+                .success(function (data) {//delete if success
+                    $scope.inv = data.dispatches[0].invoices[0];
+                    $scope.inv.creationDate = new Date($scope.inv.creationDate).toLocaleDateString();
+                    $scope.component=data.component;
+                    $scope.inv.testCertificate.mm = JSON.parse("[" + data.dispatches[0].invoices[0].testCertificate.mm + "]");
+                    $scope.inv.testCertificate.hv = JSON.parse("[" + data.dispatches[0].invoices[0].testCertificate.hv + "]");
+                    $scope.inv.testCertificate.cut = JSON.parse("[" + data.dispatches[0].invoices[0].testCertificate.cut + "]");
+                    callComponentInfo();
+                    $scope.numberToWords($scope.inv.total);
+                    $scope.chartConfig = initChartConfig(data.dispatches[0].invoices[0].testCertificate);
+                }).error(function (data) {
+                // toastr.error('Error in getting TC');
+            });
 
-         $scope.image = null;
-         $scope.imageFileName = '';
+
+        }
+         // $scope.image = null;
+         // $scope.imageFileName = '';
 
 
         $scope.numberToWords = function(number) {
+            var fraction = Math.round(frac(number)*100);
+            var f_text  = "";
 
-            var iWords = ['Zero', ' One', ' Two', ' Three', ' Four', ' Five', ' Six', ' Seven', ' Eight', ' Nine'];
-            var ePlace = ['Ten', ' Eleven', ' Twelve', ' Thirteen', ' Fourteen', ' Fifteen', ' Sixteen', ' Seventeen', ' Eighteen', ' Nineteen'];
-            var tensPlace = ['', ' Ten', ' Twenty', ' Thirty', ' Forty', ' Fifty', ' Sixty', ' Seventy', ' Eighty', ' Ninety'];
-            var inWords = [];
-
-            var numReversed, inWords, actnumber, i, j;
-
-            function tensComplication() {
-                'use strict';
-                if (actnumber[i] === 0) {
-                    inWords[j] = '';
-                } else if (actnumber[i] === 1) {
-                    inWords[j] = ePlace[actnumber[i - 1]];
-                } else {
-                    inWords[j] = tensPlace[actnumber[i]];
-                }
+            if(fraction > 0) {
+                f_text = "and "+convert_number(fraction)+" paise";
             }
 
-            function testSkill() {
-                'use strict';
-                var junkVal = number;
-                junkVal = Math.floor(junkVal);
-                var obStr = junkVal.toString();
-                numReversed = obStr.split('');
-                actnumber = numReversed.reverse();
-
-                if (Number(junkVal) >= 0) {
-                    //do nothing
-                } else {
-                    window.alert('wrong Number cannot be converted');
-                    return false;
-                }
-                if (Number(junkVal) === 0) {
-                    document.getElementById('container').innerHTML = obStr + '' + 'Rupees Zero Only';
-                    return false;
-                }
-                if (actnumber.length > 9) {
-                    window.alert('Oops!!!! the Number is too big to covertes');
-                    return false;
-                }
-
-
-                var iWordsLength = numReversed.length;
-                var finalWord = '';
-                j = 0;
-                for (i = 0; i < iWordsLength; i++) {
-                    switch (i) {
-                        case 0:
-                            if (actnumber[i] === '0' || actnumber[i + 1] === '1') {
-                                inWords[j] = '';
-                            } else {
-                                inWords[j] = iWords[actnumber[i]];
-                            }
-                            inWords[j] = inWords[j] + ' Only';
-                            break;
-                        case 1:
-                            tensComplication();
-                            break;
-                        case 2:
-                            if (actnumber[i] === '0') {
-                                inWords[j] = '';
-                            } else if (actnumber[i - 1] !== '0' && actnumber[i - 2] !== '0') {
-                                inWords[j] = iWords[actnumber[i]] + ' Hundred and';
-                            } else {
-                                inWords[j] = iWords[actnumber[i]] + ' Hundred';
-                            }
-                            break;
-                        case 3:
-                            if (actnumber[i] === '0' || actnumber[i + 1] === '1') {
-                                inWords[j] = '';
-                            } else {
-                                inWords[j] = iWords[actnumber[i]];
-                            }
-                            if (actnumber[i + 1] !== '0' || actnumber[i] > '0') {
-                                inWords[j] = inWords[j] + ' Thousand';
-                            }
-                            break;
-                        case 4:
-                            tensComplication();
-                            break;
-                        case 5:
-                            if (actnumber[i] === '0' || actnumber[i + 1] === '1') {
-                                inWords[j] = '';
-                            } else {
-                                inWords[j] = iWords[actnumber[i]];
-                            }
-                            if (actnumber[i + 1] !== '0' || actnumber[i] > '0') {
-                                inWords[j] = inWords[j] + ' Lakh';
-                            }
-                            break;
-                        case 6:
-                            tensComplication();
-                            break;
-                        case 7:
-                            if (actnumber[i] === '0' || actnumber[i + 1] === '1') {
-                                inWords[j] = '';
-                            } else {
-                                inWords[j] = iWords[actnumber[i]];
-                            }
-                            inWords[j] = inWords[j] + ' Crore';
-                            break;
-                        case 8:
-                            tensComplication();
-                            break;
-                        default:
-                            break;
-                    }
-                    j++;
-                }
-
-
-                inWords.reverse();
-                for (i = 0; i < inWords.length; i++) {
-                    finalWord += inWords[i];
-                }
-               $scope.inv.inWords=finalWord;
-            }
+            $scope.inv.inWords = convert_number(number).toLowerCase() +" rupee "+f_text+" only";
         };
 
-         //$scope.chartConfig = initChartConfig($scope.inv);
+            function frac(f) {
+                return f % 1;
+            }
 
-        //$scope.save = function() {
-        //    var tcObject = $scope.tc;
-        //
-        //    var url = 'http://localhost:8080/tc';
-        //    $http.put(url,tcObject)
-        //        .success(function(data) {//delete if success
-        //            toastr.success('Updated TC');
-        //            //$scope.exportDataVariable = data;
-        //        }).error(function(data){
-        //            toastr.error('Error in updating TC');
-        //        });
-        //};
+            function convert_number(number)
+            {
+                if ((number < 0) || (number > 999999999))
+                {
+                    return "NUMBER OUT OF RANGE!";
+                }
+                var Gn = Math.floor(number / 10000000);  /* Crore */
+                number -= Gn * 10000000;
+                var kn = Math.floor(number / 100000);     /* lakhs */
+                number -= kn * 100000;
+                var Hn = Math.floor(number / 1000);      /* thousand */
+                number -= Hn * 1000;
+                var Dn = Math.floor(number / 100);       /* Tens (deca) */
+                number = number % 100;               /* Ones */
+                var tn= Math.floor(number / 10);
+                var one=Math.floor(number % 10);
+                var res = "";
+
+                if (Gn>0)
+                {
+                    res += (convert_number(Gn) + " CRORE");
+                }
+                if (kn>0)
+                {
+                    res += (((res=="") ? "" : " ") +
+                    convert_number(kn) + " LAKH");
+                }
+                if (Hn>0)
+                {
+                    res += (((res=="") ? "" : " ") +
+                    convert_number(Hn) + " THOUSAND");
+                }
+
+                if (Dn)
+                {
+                    res += (((res=="") ? "" : " ") +
+                    convert_number(Dn) + " HUNDRED");
+                }
+
+
+                var ones = Array("", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX","SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "THIRTEEN","FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN","NINETEEN");
+                var tens = Array("", "", "TWENTY", "THIRTY", "FOURTY", "FIFTY", "SIXTY","SEVENTY", "EIGHTY", "NINETY");
+
+                if (tn>0 || one>0)
+                {
+                    if (!(res==""))
+                    {
+                        res += " AND ";
+                    }
+                    if (tn < 2)
+                    {
+                        res += ones[tn * 10 + one];
+                    }
+                    else
+                    {
+
+                        res += tens[tn];
+                        if (one>0)
+                        {
+                            res += ("-" + ones[one]);
+                        }
+                    }
+                }
+
+                if (res=="")
+                {
+                    res = "zero";
+                }
+                return res;
+            }
+
+
+        callComponentInfo = function(){
+
+            var url = "http://localhost:8080/party/" + $scope.component.partyId;
+            $http.get(url)
+                .success(function (data) {//delete if success
+                    $scope.party = data;
+                }).error(function (data) {
+                // toastr.error('Error in getting TC');
+            });
+        };
+
+
+        $scope.save = function() {
+           var tcObject = $scope.tc;
+
+           var url = 'http://localhost:8080/tc';
+           $http.put(url,tcObject)
+               .success(function(data) {//delete if success
+                   toastr.success('Updated TC');
+                   //$scope.exportDataVariable = data;
+               }).error(function(data){
+                   toastr.error('Error in updating TC');
+               });
+        };
 
 
          //$scope.name = 'World';
@@ -167,7 +149,7 @@
 
 
 
-     });
+     })  .directive('chart', chartDirective);
      //
      //.controller('MainCtrl', function($scope,$http) {
      //    $scope.name = 'World';

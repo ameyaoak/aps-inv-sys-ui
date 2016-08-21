@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('imageLoader', []).directive('fileDropzone', function() {
+    angular.module('reusableThings', []).directive('fileDropzone', function() {
         return {
             restrict: 'A',
             scope: {
@@ -67,7 +67,7 @@
 
 (function() {
     'use strict';
-    angular.module('imageLoader').controller('ImageCtrl', function($scope) {
+    angular.module('reusableThings').controller('TestCtrl', function($scope) {
         $scope.image = null
         $scope.imageFileName = ''
     });

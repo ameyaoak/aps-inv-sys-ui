@@ -30,31 +30,31 @@
 
                         <table>
                             <tr>
-                                <td>Component : <b>{{inv.componentName}}</b></td>
+                                <td>Component : <b>{{component.componentName}}</b></td>
                             </tr>
                             <tr>
-                                <td>Part No : <b>{{inv.component.partNo}}</b></td>
+                                <td>Part No : <b>{{component.partNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>Material : <b>{{inv.material}}</b></td>
+                                <td>Material : <b>{{component.material}}</b></td>
                             </tr>
                             <tr>
-                                <td>Heat Treatment : <b>{{inv.component.process}}</b></td>
+                                <td>Heat Treatment : <b>{{component.process}}</b></td>
                             </tr>
                             <tr>
-                                <td>Heat Code/Route Card No : <b>{{inv.heatCode}}</b></td>
+                                <td>Heat Code/Route Card No : <b>{{inv.testCertificate.heatCode}}</b></td>
                             </tr>
                             <tr>
-                                <td>Furnace Batch No : <b>{{inv.batchNo}}</b></td>
+                                <td>Furnace Batch No : <b>{{inv.testCertificate.batchNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>PO No : <b>{{inv.component.poNo}}</b></td>
+                                <td>PO No : <b>{{component.poNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>Batch Id : <b>{{inv.batchId}}</b></td>
+                                <td>Batch Id : <b>{{inv.batchNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>PO Date : <b>{{inv.component.poDate}}</b></td>
+                                <td>PO Date : <b>{{component.poDate}}</b></td>
                             </tr>
                         </table>
 
@@ -68,14 +68,13 @@
 
                     </div>
                     <div class="panel-body">
-                        {{inv.component}}
-                        <p>Party Name : <b>{{inv.party}}</b></p>
+                        <p>Party Name : <b>{{party.partyName}}</b></p>
 
-                        <p>Party Address : {{inv.partyAddress}}</p>
+                        <p>Party Address : {{party.partyAddress}}</p>
 
-                        <p>Phone : <b>{{inv.phone}}</b></p>
+                        <p>Phone : <b>{{party.partyPhone}}</b></p>
 
-                        <p>E-Mail : <b>{{inv.partyMail}}</b></p>
+                        <p>E-Mail : <b>{{party.partyEmail}}</b></p>
                     </div>
 
                 </div>
@@ -102,8 +101,8 @@
             <tr>
                 <td class="text-right">1</td>
                 <td class="text-right"><b>{{inv.inwardNo}}</b></td>
-                <td class="text-right"><b>{{inv.partDCNo}}</b></td>
-                <td class="text-right"><b>{{inv.partyDCDate}}</b></td>
+                <td class="text-right"><b>{{component.partyDc}}</b></td>
+                <td class="text-right"><b>{{component.partyDate}}</b></td>
                 <td class="text-right"><b>{{inv.qtyKgs}}</b></td>
                 <td class="text-right"><b>{{inv.rateKg}}</b></td>
                 <td class="text-right"><b>{{inv.qtyNos}}</b></td>
@@ -199,8 +198,10 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
     <br>
 </div>
 
@@ -236,23 +237,23 @@
 
                         <table>
                             <tr>
-                                <td>Party: {{inv.party}}</td>
+                                <td>Party : <b>{{party.partyName}}</b></td>
                             </tr>
                             <tr>
-                                <td>Component: {{inv.componentName}}</td>
+                                <td>Component : <b>{{component.componentName}}</b></td>
                             </tr>
                             <tr>
-                                <td>Part No: {{inv.partNo}}</td>
+                                <td>Part No : <b>{{component.partNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>Material: {{inv.material}}</td>
+                                <td>Material : <b>{{component.material}}</b></td>
                             </tr>
                             <tr>
-                                <td>Batch Id: {{inv.batchId}}</td>
+                                <td>Batch Id : <b>{{inv.testCertificate.batchNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>Qty Nos: {{inv.qtyNos}}</td>
-                                <td>Qty Kgs: {{inv.qtyKgs}}</td>
+                                <td>Qty Nos : <b>{{inv.qtyNos}}</b></td>
+                                <td>Qty Kgs : <b>{{inv.qtyKgs}}</b></td>
                             </tr>
 
                             <tr>
@@ -272,26 +273,26 @@
                     <div class="panel-body">
                         <table>
                             <tr>
-                                <td>Ref Std. / WI /TDS No: {{inv.tdsNo}}</td>
+                                <td>Ref Std. / WI /TDS No: <b>{{inv.testCertificate.refStd}}</b></td>
                             </tr>
                             <tr>
-                                <td>Heat Code/RC No: {{inv.heatCode}}</td>
+                                <td>Heat Code/RC No: <b>{{inv.testCertificate.heatCode}}</b></td>
                             </tr>
                             <tr>
-                                <td>Furnace Batch No: {{inv.batchNo}}</td>
+                                <td>Furnace Batch No: <b>{{inv.testCertificate.batchNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>Furnace : {{inv.furnace}}</td>
+                                <td>Furnace : <b>{{inv.testCertificate.furnace}}</b></td>
                             </tr>
                             <tr>
-                                <td>APS DC No:{{inv.apsDCNo}}</td>
+                                <td>APS DC No : <b>{{inv.invoiceNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>APS DC Date: {{inv.apsDCDate}}</td>
+                                <td>APS DC Date : <b>{{inv.creationDate}}</b></td>
                             </tr>
 
                             <tr>
-                                <td>Approved By: {{inv.invoiceWorker}}</td>
+                                <td>Approved By : <b>{{inv.invoiceWorker}}</b></td>
                             </tr>
                         </table>
                     </div>
@@ -349,25 +350,26 @@
 
 
         <div class="row">
-            <div class="col-xs-12 text-left">
+            <div class="col-xs-7 text-left">
 
-                <div style="float:left;">
-                    <!-- Case Depth by Zwick make Microhardness Tester-->
-                    <div style="background-color: #0088CC;" class="empty "
-                         file-dropzone="[image/png, image/jpeg, image/gif]" file="image"
-                         file-name="imageFileName" data-max-file-size="3">
-                        Micro Photo
-                    </div>
-
-
-                    <div class="image-container">
-                        <img class="microPic" ng-src={{image}}/>{{imageFileName}}
-                        <span class="file-name">{{imageFileName}}</span>
-                    </div>
-                    400X 2% Nital
+                 <div class="col-xs-2">
+                 <div class="dropzone no-print" file-dropzone="[image/png, image/jpeg, image/gif]"
+                              file="image" file-name="imageFileName" data-max-file-size="3">
+                         </div>
+                     </div>
+                <div class="col-xs-5">
+                <div class="image-container">
+                             <img ng-src={{image}} />
+                             <span class="file-name">{{imageFileName}}</span>
+                         </div>
                 </div>
-                <div style="float:right;">
+
+
+</div>
+            <div class="col-xs-5 ">
+                <div style="float:left;">
                     <chart config="chartConfig"></chart>
+                </div>
                 </div>
                 <!-- <div ng-hide={{inv.microPic}}>
                         <div class="image-container">
@@ -379,6 +381,9 @@
                       </div>-->
 
                 <!-- <img class="microGraph" src={{inv.microGraph}}>-->
+ </div>
+        <div class="row">
+            <div class="col-xs-12 text-left">
                 <table class="table table-bordered table-condensed">
                     <tr>
                     </tr>
@@ -401,7 +406,7 @@
                 </table>
             </div>
         </div>
-        <div class="text-center"><big>Final Disposition : Lot is accepted / Conditionally accepted / Rejected</big>
+        <div class="text-center"><big>Final Disposition : {{inv.testCertificate.finalDisposition}}</big>
         </div>
     </div>
 </div>

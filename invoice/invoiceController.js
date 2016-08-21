@@ -18,8 +18,8 @@ angular.module('invoiceModule', ['chartModule' ])
         $scope.report = function() {
             var selectedRec = $scope.report.selected;
             $scope.selectedRecForTc = selectedRec;
-            if(selectedRec.invoiceNo!=undefined) {
-               $location.path('/inv').search({invoiceNo: selectedRec.invoiceNo});
+            if(selectedRec.inwardNo!=undefined) {
+               $location.path('/inv').search({inwardNo: selectedRec.inwardNo});
             }
         };
 
