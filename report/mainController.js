@@ -13,10 +13,10 @@
                     $scope.inv.creationDate = new Date($scope.inv.creationDate).toLocaleDateString();
                     $scope.component=data.component;
                     callComponentInfo();
+                    $scope.numberToWords($scope.inv.total);
                     $scope.inv.testCertificate.mm = JSON.parse("[" + data.dispatches[0].invoices[0].testCertificate.mm + "]");
                     $scope.inv.testCertificate.hv = JSON.parse("[" + data.dispatches[0].invoices[0].testCertificate.hv + "]");
                     $scope.inv.testCertificate.cut = JSON.parse("[" + data.dispatches[0].invoices[0].testCertificate.cut + "]");
-                    $scope.numberToWords($scope.inv.total);
                     $scope.chartConfig = initChartConfig(data.dispatches[0].invoices[0].testCertificate);
                 }).error(function (data) {
                 // toastr.error('Error in getting TC');

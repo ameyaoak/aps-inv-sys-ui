@@ -331,7 +331,7 @@
                     </thead>
                     <tbody>
 
-                    <tr ng-repeat="data in inv.testCertificate.gridRows">
+                    <tr ng-repeat="data in inv.testCertificate.gridRows | orderBy:'gridRowId'">
                         <td class="text-left">{{data.particular}}</td>
                         <td class="text-left">{{data.testLocation}}</td>
                         <td class="text-left">{{data.testMethod}}</td>
@@ -398,8 +398,8 @@
                         <td ng-repeat="hvData in inv.testCertificate.hv track by $index">{{hvData}}</td>
                     </tr>
                     <tr>
-                        <td>{{inv.testCertificate.loadVal}}</td>
-                        <th>Cut</th>
+                        <td></td>
+                        <th>Cut Off</th>
                         <td ng-repeat="cutData in inv.testCertificate.cut track by $index">{{cutData}}</td>
                     </tr>
                     </tbody>

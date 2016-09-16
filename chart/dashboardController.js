@@ -11,7 +11,7 @@ function initChartConfig(data) {
                 text: null
             },
 
-            yAxis: {title: {text: 'hv/cut'}, tickInterval: 10, min: 0},
+            yAxis: {title: {text: 'HV/Cut Off'},  min: 0},
             tooltip: {valueSuffix: ' '},
             legend: {align: 'right', layout: 'vertical', verticalAlign: 'middle', borderWidth: 0},
             plotOptions: {
@@ -48,14 +48,14 @@ function initChartConfig(data) {
             },
             series: [
                 {
-                    name: 'hv',
+                    name: 'HV',
                     type: 'line',
                     yaxis: 1,
                     data: data.hv
 
                 },
                 {
-                    name: 'cut',
+                    name: 'Cut Off',
                     yaxis: 2,
                     type: 'line',
                     data: data.cut
