@@ -20,6 +20,16 @@ angular.module('newInwardModule', ['toastr' ])
             inwardEntry.component=$scope.selectedComponent;
             inwardEntry.qtyKgs=$scope.selectedComponent.qtyKgs;
             inwardEntry.qtyNos=$scope.selectedComponent.qtyNos;
+            inwardEntry.inspectedQty=$scope.selectedComponent.inspectedQty;
+            inwardEntry.damageQty=$scope.selectedComponent.damageQty;
+            inwardEntry.inspectedDistortation=$scope.selectedComponent.inspectedDistortation;
+            inwardEntry.finish=$scope.selectedComponent.finish;
+            inwardEntry.checkedBy=$scope.selectedComponent.checkedBy;
+            inwardEntry.remark=$scope.selectedComponent.remark;
+            inwardEntry.partyDc=$scope.selectedComponent.partyDc;
+            inwardEntry.partyDate=$scope.selectedComponent.partyDate;
+            inwardEntry.poNo=$scope.selectedComponent.poNo;
+            inwardEntry.poDate=$scope.selectedComponent.poDate;
             saveInward(inwardEntry);
         };
 

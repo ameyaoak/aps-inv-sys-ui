@@ -6,12 +6,16 @@
             $http.get(url)
                 .success(function (data) {//delete if success
                     $scope.inv = data.dispatches[0].invoices[0];
+                    $scope.partyDc = data.partyDc;
+                    $scope.partyDate = data.partyDate;
+                    $scope.poNo = data.poNo;
+                    $scope.poDate = data.poDate;
                     $scope.inv.creationDate = new Date($scope.inv.creationDate).toLocaleDateString();
                     $scope.component=data.component;
+                    callComponentInfo();
                     $scope.inv.testCertificate.mm = JSON.parse("[" + data.dispatches[0].invoices[0].testCertificate.mm + "]");
                     $scope.inv.testCertificate.hv = JSON.parse("[" + data.dispatches[0].invoices[0].testCertificate.hv + "]");
                     $scope.inv.testCertificate.cut = JSON.parse("[" + data.dispatches[0].invoices[0].testCertificate.cut + "]");
-                    callComponentInfo();
                     $scope.numberToWords($scope.inv.total);
                     $scope.chartConfig = initChartConfig(data.dispatches[0].invoices[0].testCertificate);
                 }).error(function (data) {

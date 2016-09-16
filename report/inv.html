@@ -48,13 +48,13 @@
                                 <td>Furnace Batch No : <b>{{inv.testCertificate.batchNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>PO No : <b>{{component.poNo}}</b></td>
+                                <td>PO No : <b>{{poNo}}</b></td>
                             </tr>
                             <tr>
                                 <td>Batch Id : <b>{{inv.batchNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>PO Date : <b>{{component.poDate}}</b></td>
+                                <td>PO Date : <b>{{poDate}}</b></td>
                             </tr>
                         </table>
 
@@ -101,8 +101,8 @@
             <tr>
                 <td class="text-right">1</td>
                 <td class="text-right"><b>{{inv.inwardNo}}</b></td>
-                <td class="text-right"><b>{{component.partyDc}}</b></td>
-                <td class="text-right"><b>{{component.partyDate}}</b></td>
+                <td class="text-right"><b>{{partyDc}}</b></td>
+                <td class="text-right"><b>{{partyDate}}</b></td>
                 <td class="text-right"><b>{{inv.qtyKgs}}</b></td>
                 <td class="text-right"><b>{{inv.rateKg}}</b></td>
                 <td class="text-right"><b>{{inv.qtyNos}}</b></td>
@@ -219,7 +219,7 @@
 
             </div>
             <div class="col-xs-4 text-right">
-                <h3> TEST REPORT</h3> Invoice <big>#{{inv.invoiceNo}}</big>
+                <h3> METALLURGICAL TEST REPORT</h3> Invoice <big>#{{inv.invoiceNo}}</big>
                 <br>Date : {{inv.creationDate}}
 
             </div>
@@ -273,7 +273,7 @@
                     <div class="panel-body">
                         <table>
                             <tr>
-                                <td>Ref Std. / WI /TDS No: <b>{{inv.testCertificate.refStd}}</b></td>
+                                <td>Batch Id / WI /TDS No: <b>{{inv.testCertificate.refStd}}</b></td>
                             </tr>
                             <tr>
                                 <td>Heat Code/RC No: <b>{{inv.testCertificate.heatCode}}</b></td>
@@ -312,11 +312,11 @@
                         <th style="width: 5%;">
                             Test Location
                         </th>
-                        <th style="width: 40%;">
+                        <th style="width: 20%;">
                             Test Method
                         </th>
                         <th style="width: 5%;">
-                            Qty
+                            Qty Checked
                         </th>
                         <th style="width: 40%;">
                             Specification

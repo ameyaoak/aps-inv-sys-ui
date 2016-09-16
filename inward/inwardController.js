@@ -1,8 +1,8 @@
 angular.module('inwardModule', ['toastr' ])
     .controller('inwardController', function(toastr,$scope,$http) {
         $scope.inward_fromdata="http://localhost:8080/inward/displayAll";
-        $scope.inward_headers="Creation Date,Inward No, Party, Component,Material,Part No,Process,Qty Kg,Qty No,Rate Kg,Rate No";
-        $scope.inward_fields="creationDate,inwardNo,party,component,material,partNo,process,qtyKgs,qtyNos,rateKg,rateNos";
+        $scope.inward_headers="Creation Date,Inward No, Party, Component,Material,Part No,Process,Qty Kg,Qty No,Rate Kg,Rate No,Inspection";
+        $scope.inward_fields="creationDate,inwardNo,party,component,material,partNo,process,qtyKgs,qtyNos,rateKg,rateNos,remark";
         $scope.inward_button1="Dispatch";
 
 
