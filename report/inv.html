@@ -13,7 +13,8 @@
 
             </div>
             <div class="col-xs-4 text-right">
-                <h1>INVOICE</h1> Invoice <big>#{{inv.invoiceNo}}</big>
+                <h3>DELIVERY CHALLAN /
+                    INVOICE</h3> Invoice <big>#{{inv.invoiceNo}}</big>
                 <br>Date : {{inv.creationDate}}
 
             </div>
@@ -42,16 +43,16 @@
                                 <td>Heat Treatment : <b>{{component.process}}</b></td>
                             </tr>
                             <tr>
-                                <td>Heat Code/Route Card No : <b>{{inv.testCertificate.heatCode}}</b></td>
+                                <td>Heat Code : <b>{{inv.testCertificate.heatCode}}</b></td>
                             </tr>
                             <tr>
                                 <td>Furnace Batch No : <b>{{inv.testCertificate.batchNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>PO No : <b>{{poNo}}</b></td>
+                                <td>Batch Id : <b>{{inv.batchNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>Batch Id : <b>{{inv.batchNo}}</b></td>
+                                <td>PO No : <b>{{poNo}}</b></td>
                             </tr>
                             <tr>
                                 <td>PO Date : <b>{{poDate}}</b></td>
@@ -249,6 +250,9 @@
                                 <td>Material : <b>{{component.material}}</b></td>
                             </tr>
                             <tr>
+                                <td>Inward No : <b>{{inv.inwardNo}}</b></td>
+                            </tr>
+                            <tr>
                                 <td>Batch Id : <b>{{inv.testCertificate.batchNo}}</b></td>
                             </tr>
                             <tr>
@@ -273,6 +277,12 @@
                     <div class="panel-body">
                         <table>
                             <tr>
+                                <td>Heat Treatment : <b>{{component.process}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>Furnace : <b>{{inv.testCertificate.furnace}}</b></td>
+                            </tr>
+                            <tr>
                                 <td>Batch Id / WI /TDS No: <b>{{inv.testCertificate.refStd}}</b></td>
                             </tr>
                             <tr>
@@ -281,9 +291,7 @@
                             <tr>
                                 <td>Furnace Batch No: <b>{{inv.testCertificate.batchNo}}</b></td>
                             </tr>
-                            <tr>
-                                <td>Furnace : <b>{{inv.testCertificate.furnace}}</b></td>
-                            </tr>
+
                             <tr>
                                 <td>APS DC No : <b>{{inv.invoiceNo}}</b></td>
                             </tr>
