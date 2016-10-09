@@ -5,7 +5,12 @@
             var url = "http://localhost:8080/inward/" + $routeParams.inwardNo;
             $http.get(url)
                 .success(function (data) {//delete if success
-                    $scope.inv = data.dispatches[0].invoices[0];
+
+                    var dispatchNo = $routeParams.dispatchNo;
+                    var recIndex = _.findLastIndex(data.dispatches, {
+                        "dispatchNo" : dispatchNo
+                    });
+                    $scope.inv = data.dispatches[recIndex].invoices[0];
                     $scope.partyDc = data.partyDc;
                     $scope.partyDate = data.partyDate;
                     $scope.poNo = data.poNo;

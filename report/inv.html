@@ -49,7 +49,7 @@
                                 <td>Furnace Batch No : <b>{{inv.testCertificate.batchNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>Batch Id : <b>{{inv.batchNo}}</b></td>
+                                <td>Batch Id : <b>{{inv.testCertificate.batchId}}</b></td>
                             </tr>
                             <tr>
                                 <td>PO No : <b>{{poNo}}</b></td>
@@ -253,7 +253,7 @@
                                 <td>Inward No : <b>{{inv.inwardNo}}</b></td>
                             </tr>
                             <tr>
-                                <td>Batch Id : <b>{{inv.testCertificate.batchNo}}</b></td>
+                                <td>Batch Id : <b>{{inv.testCertificate.batchId}}</b></td>
                             </tr>
                             <tr>
                                 <td>Qty Nos : <b>{{inv.qtyNos}}</b></td>
@@ -261,7 +261,7 @@
                             </tr>
 
                             <tr>
-                                <td>Inspected By: {{inv.invoiceWorker}}</td>
+                                <td>Inspected By: <b>{{inv.testCertificate.inspectedBy}}</b></td>
                             </tr>
                         </table>
 
@@ -283,7 +283,7 @@
                                 <td>Furnace : <b>{{inv.testCertificate.furnace}}</b></td>
                             </tr>
                             <tr>
-                                <td>Batch Id / WI /TDS No: <b>{{inv.testCertificate.refStd}}</b></td>
+                                <td>Reff Std / WI /TDS No: <b>{{inv.testCertificate.refStd}}</b></td>
                             </tr>
                             <tr>
                                 <td>Heat Code/RC No: <b>{{inv.testCertificate.heatCode}}</b></td>
@@ -300,7 +300,7 @@
                             </tr>
 
                             <tr>
-                                <td>Approved By : <b>{{inv.invoiceWorker}}</b></td>
+                                <td>Approved By : <b>{{inv.testCertificate.approvedBy}}</b></td>
                             </tr>
                         </table>
                     </div>
@@ -324,7 +324,7 @@
                             Test Method
                         </th>
                         <th style="width: 5%;">
-                            Qty Checked
+                            Qty Checked Nos
                         </th>
                         <th style="width: 40%;">
                             Specification

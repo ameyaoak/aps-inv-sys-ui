@@ -30,20 +30,56 @@
             <label> PO No  : <input type="text"  ng-model="selectedComponent.poNo"></label>
             <label> PO Date : <input type="text"  ng-model="selectedComponent.poDate"></label>
             <label> Version : <input type="text" ng-model="selectedComponent.version"></label>
-        </div>
-
-
-        <div class="col-md-3"> <legend>Component Specs</legend>
             <label> Wt/No : <input type="text" ng-model="selectedComponent.wtt"></label>
-            <label> Surface Hd : <input type="text" ng-model="selectedComponent.surfaceHd"></label>
-            <label> Core Hd : <input type="text" ng-model="selectedComponent.coreHd"></label>
-            <label> Case Depth : <input type="text" ng-model="selectedComponent.caseDepth"></label>
-            <label> Microstructure : <input type="text" ng-model="selectedComponent.crack"></label>
-            <label> Distortation : <input type="text" ng-model="selectedComponent.distortation"></label>
-            <!--<label> SF : <input type="text" ng-model="selectedComponent.sf"></label>-->
-            <label> Layer Thickness : <input type="text" ng-model="selectedComponent.layerThickness"></label>
-            <label> Apperance : <input type="text" ng-model="selectedComponent.apperance"></label>
         </div>
+
+
+        <div class="col-md-6"> <legend>Component Specs</legend>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Specs</th>
+                    <th>Test Location</th>
+                    <th>Test Method</th>
+                </tr>
+                <tr>
+                    <td> Surface Hd : </td><td><input type="text" ng-model="selectedComponent.surfaceHd"></td>
+                    <td><input type="text" ng-model="selectedComponent.surfaceHdTestLocation"></td>
+                    <td><input type="text" ng-model="selectedComponent.surfaceHdTestMethod"></td></tr>
+                <tr>
+                    <td> Core Hd : </td><td><input type="text" ng-model="selectedComponent.coreHd"></td>
+                    <td><input type="text" ng-model="selectedComponent.coreHdTestLocation"></td>
+                    <td><input type="text" ng-model="selectedComponent.coreHdTestMethod"></td>
+                </tr>
+                <tr>
+                    <td> Case Depth : </td><td><input type="text" ng-model="selectedComponent.caseDepth"></td>
+                    <td><input type="text" ng-model="selectedComponent.caseDepthTestLocation"></td>
+                    <td><input type="text" ng-model="selectedComponent.caseDepthTestMethod"></td>
+                </tr>
+                <tr>
+                    <td> Microstructure : </td><td><input type="text" ng-model="selectedComponent.crack"></td>
+                    <td><input type="text" ng-model="selectedComponent.crackTestLocation"></td>
+                    <td><input type="text" ng-model="selectedComponent.crackTestMethod"></td>
+                </tr>
+                <tr>
+                    <td> Distortation : </td><td><input type="text" ng-model="selectedComponent.distortation"></td>
+                    <td><input type="text" ng-model="selectedComponent.distortationTestLocation"></td>
+                    <td><input type="text" ng-model="selectedComponent.distortationTestMethod"></td>
+                </tr>
+            <!--<label> SF : <input type="text" ng-model="selectedComponent.sf"></label>-->
+                <tr>
+                    <td> Layer Thickness : </td><td><input type="text" ng-model="selectedComponent.layerThickness"></td>
+                    <td><input type="text" ng-model="selectedComponent.layerThicknessTestLocation"></td>
+                    <td><input type="text" ng-model="selectedComponent.layerThicknessTestMethod"></td>
+                </tr>
+                <tr>
+                    <td> Apperance : </td><td><input type="text" ng-model="selectedComponent.apperance"></td>
+                    <td><input type="text" ng-model="selectedComponent.apperanceTestLocation"></td>
+                    <td><input type="text" ng-model="selectedComponent.apperanceTestMethod"></td>
+                </tr>
+                </table>
+        </div>
+
         <div class="col-md-3"> <legend>Component Rates</legend>
                 <label> Rate Kg : <input type="number" ng-model="selectedComponent.rateKg" required></label>
             <p ng-show="selectedComponent.rateKg.$invalid && !selectedComponent.rateKg.$pristine" class="validation-block">Rate in Kgs is required.</p>

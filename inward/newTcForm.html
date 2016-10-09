@@ -20,7 +20,7 @@
                                 <th>Specification</th>
                                 <th>Observations</th>
                                 <th>Remarks</th>
-                                <th>Checked By</th>
+                                <!--<th>Checked By</th>-->
                             </tr>
                             <tr ng-repeat="gridRow in gridRows">
                                 <td><input type="text" ng-model="gridRow.particular"></td>
@@ -30,7 +30,7 @@
                                 <td><input type="text" ng-model="gridRow.actuals"></td>
                                 <td><input type="text" ng-model="gridRow.observation"></td>
                                 <td><input type="text" ng-model="gridRow.remark"></td>
-                                <td><input type="text" ng-model="gridRow.checkedBy"></td>
+                                <!--<td><input type="text" ng-model="gridRow.checkedBy"></td>-->
                             </tr>
 
                             </tbody>
@@ -90,11 +90,18 @@
                         <div class="col-md-3">
                             <legend>Batch Info</legend>
                             <div><label> Ref Std : <input type="text" ng-model="tc.refStd"></label></div>
-                            <div><label> Heat Code : <input type="text" ng-model="tc.heatCode"></label></div>
-                            <div><label> Batch No : <input type="text" ng-model="tc.batchNo"></label></div>
                             <div><label> Furnace : <input type="text" ng-model="tc.furnace"></label></div>
+                            <div><label> Batch No : <input type="text" ng-model="tc.batchNo"></label></div>
+                            <div><label> Batch Id : <input type="text" ng-model="tc.batchId"></label></div>
+                            <div><label> Heat Code : <input type="text" ng-model="tc.heatCode"></label></div>
                             <div><label> Final Disposition : <input type="text" ng-model="tc.finalDisposition"></label>
                             </div>
+                        </div>
+                        <div class="col-md-3">
+                            <legend>Operator Info</legend>
+                            <div><label> Inspected By : <input type="text" ng-model="tc.inspectedBy"></label></div>
+                            <div><label> Approved By : <input type="text" ng-model="tc.approvedBy"></label></div>
+                        </div>
                         </div>
                     </div>
                 </fieldset>
