@@ -43,14 +43,14 @@
                     <label> Surface Finish (scale/rust/oily) : <input type="text" ng-model="selectedComponent.finish"></label>
                     <label> Distortation (bent/runout) : <input type="text" ng-model="selectedComponent.inspectedDistortation"></label>
                     <label> Remark : <input type="text" ng-model="selectedComponent.remark"></label>
-                    <label> Checked By : <input type="text" ng-model="selectedComponent.checkedBy"></label>
+                    <label> Cleared By : <input type="text" ng-model="selectedComponent.checkedBy"></label>
                 </div>
                 <div class="col-md-3"><legend>Quantity and Rate</legend>
-                    <label>Qty Kg :
+                    <label>Recieved Qty Kgs :
                         <input type="number" ng-model="selectedComponent.qtyKgs" placeholder="Required" required>
                         <p ng-show="selectedComponent.qtyNos.$invalid && !selectedComponent.qtyNos.$pristine" class="validation-block">Quantity in Nos is required.</p>
                     </label>
-                    <label>Qty No :
+                    <label>Recieved Qty Nos :
                         <input type="number" ng-model="selectedComponent.qtyNos" placeholder="Required" required>
                         <p ng-show="selectedComponent.qtyKgs.$invalid && !selectedComponent.qtyKgs.$pristine" class="validation-block">Quantity in Kgs is required.</p>
                     </label>
