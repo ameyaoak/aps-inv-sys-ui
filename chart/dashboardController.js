@@ -4,6 +4,7 @@ function initChartConfig(data) {
             xAxis: {
 
                 categories: data.mm,
+                gridLineWidth:1,
                 title: {text: 'mm'}
             }, title: {
                 text: null
@@ -11,17 +12,18 @@ function initChartConfig(data) {
                 text: null
             },
 
-            yAxis: {title: {text: 'HV/Cut Off'},  min: 0},
+            yAxis: {title: {text: 'HV'}},
             tooltip: {valueSuffix: ' '},
-            legend: {align: 'right', layout: 'vertical', verticalAlign: 'middle', borderWidth: 0},
+
+            legend: {enabled:false, align: 'right', layout: 'vertical', verticalAlign: 'middle', borderWidth: 0},
             plotOptions: {
                 area: {
                     fillColor: {
                         linearGradient: {x1: 0, y1: 0, x2: 0, y2: 1},
                         stops: [
                             [0, Highcharts.getOptions().colors[0]],
-                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                        ]
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]]
+
                     },
                     marker: {
                         radius: 2
@@ -37,7 +39,7 @@ function initChartConfig(data) {
                 },
                 line: {
                     dataLabels: {
-                        enabled: true
+                        enabled: false
                     },
                     enableMouseTracking: false
                 }
@@ -51,14 +53,16 @@ function initChartConfig(data) {
                     name: 'HV',
                     type: 'line',
                     yaxis: 1,
-                    data: data.hv
+                    data: data.hv,
+                    tickInterval: 10
 
                 },
                 {
                     name: 'Cut Off',
                     yaxis: 2,
                     type: 'line',
-                    data: data.cut
+                    data: data.cut,
+                    tickInterval: 10
 
                 }]
         };
