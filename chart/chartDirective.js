@@ -2,7 +2,7 @@ var chartDirective = function () {
     return {
         restrict: 'E',
         replace: true,
-        template: '<div style="width:400px; height:200px;float:left;"></div>',
+        template: '<div style="width:500px; height:170px;"></div>',
         scope: {
             config: '=',
             xaxis: '=',

@@ -211,20 +211,14 @@
             <div class="col-xs-4 text-right">
                 <h3> METALLURGICAL TEST REPORT</h3> Invoice <big>#{{inv.invoiceNo}}</big>
                 <br>Date : {{inv.creationDate}}
-
             </div>
         </div>
-        <br>
 
         <div class="row">
             <div class="col-xs-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <big> Component Details</big>
-
-                    </div>
                     <div class="panel-body">
-
+                        <div style="font-size: 16px;font-weight: bold;"><b> Component Details</b><br></div>
                         <table>
                             <tr>
                                 <td>Party : <b>{{party.partyName}}</b></td>
@@ -240,8 +234,6 @@
                             </tr>
                             <tr>
                                 <td>Inward No : <b>{{inv.inwardNo}}</b></td>
-                            </tr>
-                            <tr>
                                 <td>Batch Id : <b>{{inv.testCertificate.batchId}}</b></td>
                             </tr>
                             <tr>
@@ -259,11 +251,10 @@
             </div>
             <div class="col-xs-6  text-left">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <big> Process Details</big>
 
-                    </div>
                     <div class="panel-body">
+                        <div style="font-size: 16px;font-weight: bold;"><b> Process Details</b><br></div>
+
                         <table>
                             <tr>
                                 <td>Heat Treatment : <b>{{component.process}}</b></td>
@@ -283,8 +274,6 @@
 
                             <tr>
                                 <td>APS DC No : <b>{{inv.invoiceNo}}</b></td>
-                            </tr>
-                            <tr>
                                 <td>APS DC Date : <b>{{inv.creationDate}}</b></td>
                             </tr>
 
@@ -309,13 +298,13 @@
                         <th style="width: 5%;">
                             Test Location
                         </th>
-                        <th style="width: 20%;">
+                        <th style="width: 10%;">
                             Test Method
                         </th>
                         <th style="width: 5%;">
-                            Qty Checked Nos
+                            Checked Qty Nos
                         </th>
-                        <th style="width: 40%;">
+                        <th style="width: 30%;">
                             Specification
                         </th>
                         <th style="width: 30%;">
@@ -324,7 +313,7 @@
                         <th style="width: 10%;">
                             Remarks
                         </th>
-
+                    </tr>
                     </thead>
                     <tbody>
 
@@ -347,23 +336,23 @@
 
 
         <div class="row">
-            <div class="col-xs-7 text-left">
+            <div class="col-xs-2 text-left">
 
-                 <div class="col-xs-2">
-                 <div class="dropzone no-print" file-dropzone="[image/png, image/jpeg, image/gif]"
-                              file="image" file-name="imageFileName" data-max-file-size="3">
-                         </div>
-                     </div>
-                <div class="col-xs-5">
-                <div class="image-container">
-                             <img ng-src={{image}} />
-                             <span class="file-name">{{imageFileName}}</span>
-                         </div>
-                </div>
+                 <!--<div class="col-xs-2">-->
+                 <!--<div class="dropzone no-print" file-dropzone="[image/png, image/jpeg, image/gif]"-->
+                              <!--file="image" file-name="imageFileName" data-max-file-size="3">-->
+                         <!--</div>-->
+                     <!--</div>-->
+                <!--<div class="col-xs-5">-->
+                <!--<div class="image-container">-->
+                             <!--<img ng-src={{image}} />-->
+                             <!--<span class="file-name">{{imageFileName}}</span>-->
+                         <!--</div>-->
+                <!--</div>-->
 
 
 </div>
-            <div class="col-xs-5 ">
+            <div class="col-xs-10 ">
                 <div style="float:left;">
                     <chart config="chartConfig"></chart>
                 </div>
