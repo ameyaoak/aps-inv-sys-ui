@@ -200,25 +200,24 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-8">
-                <h3>
+                <b>
                     <img src="externalFiles/logo.gif"
                          style="width:70px;height:30px;">
                     APS HEAT TREATERS
-                </h3> Gat no. 263, Post Pirangut, Tal. Mulshi, Dist. Pune 412115
-                <br>Phone-020-66524944 | E-Mail : apsheat@gmail.com
+                </b> Gat 263,Post Pirangut,Tal.Mulshi,Pune 412115
 
             </div>
             <div class="col-xs-4 text-right">
-                <h3> METALLURGICAL TEST REPORT</h3> Invoice <big>#{{inv.invoiceNo}}</big>
-                <br>Date : {{inv.creationDate}}
+                <b> METALLURGICAL TEST REPORT</b>
+                <br>Date : {{inv.creationDate}}   | Invoice <b>#{{inv.invoiceNo}}</b>
             </div>
         </div>
-
+<br>
         <div class="row">
             <div class="col-xs-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div style="font-size: 16px;font-weight: bold;"><b> Component Details</b><br></div>
+                <div>
+                    <div>
+                        <b style="font-size: 15px;border-bottom: 1px solid"> Component Details</b>
                         <table>
                             <tr>
                                 <td>Party : <b>{{party.partyName}}</b></td>
@@ -250,10 +249,10 @@
                 </div>
             </div>
             <div class="col-xs-6  text-left">
-                <div class="panel panel-default">
+                <div>
 
-                    <div class="panel-body">
-                        <div style="font-size: 16px;font-weight: bold;"><b> Process Details</b><br></div>
+                    <div>
+                        <b style="font-size: 15px;border-bottom: 1px solid"> Process Details</b>
 
                         <table>
                             <tr>
@@ -285,6 +284,7 @@
                 </div>
             </div>
         </div>
+        <br>
         <!-- / end client details section -->
         <div class="row">
             <div class="col-xs-12">
@@ -336,7 +336,6 @@
 
 
         <div class="row">
-            <div class="col-xs-2 text-left">
 
                  <!--<div class="col-xs-2">-->
                  <!--<div class="dropzone no-print" file-dropzone="[image/png, image/jpeg, image/gif]"-->
@@ -351,7 +350,6 @@
                 <!--</div>-->
 
 
-</div>
             <div class="col-xs-10 ">
                 <div style="float:left;">
                     <chart config="chartConfig"></chart>
