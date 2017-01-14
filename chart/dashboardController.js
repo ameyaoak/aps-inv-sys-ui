@@ -11,7 +11,7 @@ function initChartConfig(data) {
             }, subtitle: {
                 text: null
             },
-
+ 
             yAxis: {title: {text: 'HV'}},
             tooltip: {valueSuffix: ' '},
 
@@ -39,7 +39,7 @@ function initChartConfig(data) {
                 },
                 line: {
                     dataLabels: {
-                        enabled: false
+                        enabled: true
                     },
                     enableMouseTracking: false
                 }
@@ -54,7 +54,7 @@ function initChartConfig(data) {
                     type: 'line',
                     yaxis: 1,
                     data: data.hv,
-                    tickInterval: 10
+                    lineWidth: 1
 
                 },
                 {
@@ -62,7 +62,7 @@ function initChartConfig(data) {
                     yaxis: 2,
                     type: 'line',
                     data: data.cut,
-                    tickInterval: 10
+                    lineWidth: 1
 
                 }]
         };

@@ -197,19 +197,20 @@
 
 <div id="tc" style="page-break-before: always">
     <!--<div class="btn primary large no-print">Hello {{name}}!</div>-->
-    <div class="container">
+    <div class="container" style="font-size: 16px;">
         <div class="row">
             <div class="col-xs-8">
-                <b>
+                <h3>
                     <img src="externalFiles/logo.gif"
                          style="width:70px;height:30px;">
                     APS HEAT TREATERS
-                </b> Gat 263,Post Pirangut,Tal.Mulshi,Pune 412115
+                </h3> Gat no. 263, Post Pirangut, Tal. Mulshi, Dist. Pune 412115
+                <br>Phone-020-66524944 | E-Mail : apsheat@gmail.com
 
             </div>
             <div class="col-xs-4 text-right">
-                <b> METALLURGICAL TEST REPORT</b>
-                <br>Date : {{inv.creationDate}}   | Invoice <b>#{{inv.invoiceNo}}</b>
+                <h3> METALLURGICAL TEST REPORT</h3> Invoice <big>#{{inv.invoiceNo}}</big>
+                <br>Date : {{inv.creationDate}}
             </div>
         </div>
 <br>
@@ -217,33 +218,33 @@
             <div class="col-xs-6">
                 <div>
                     <div>
-                        <b style="font-size: 15px;border-bottom: 1px solid"> Component Details</b>
-                        <table>
-                            <tr>
-                                <td>Party : <b>{{party.partyName}}</b></td>
-                            </tr>
-                            <tr>
-                                <td>Component : <b>{{component.componentName}}</b></td>
-                            </tr>
-                            <tr>
-                                <td>Part No : <b>{{component.partNo}}</b></td>
-                            </tr>
-                            <tr>
-                                <td>Material : <b>{{component.material}}</b></td>
-                            </tr>
-                            <tr>
-                                <td>Inward No : <b>{{inv.inwardNo}}</b></td>
-                                <td>Batch Id : <b>{{inv.testCertificate.batchId}}</b></td>
-                            </tr>
-                            <tr>
-                                <td>Qty Nos : <b>{{inv.qtyNos}}</b></td>
-                                <td>Qty Kgs : <b>{{inv.qtyKgs}}</b></td>
-                            </tr>
+                        <!--<b style="font-size: 15px;border-bottom: 1px solid"> Component Details</b>-->
 
-                            <tr>
-                                <td>Inspected By: <b>{{inv.testCertificate.inspectedBy}}</b></td>
-                            </tr>
-                        </table>
+                            <div>
+                                Party : <b>{{party.partyName}}</b>
+                            </div>
+                            <div>
+                                Component : <b>{{component.componentName}}</b>
+                            </div>
+                            <div>
+                                Part No : <b>{{component.partNo}}</b>
+                            </div>
+                            <div>
+                                Material : <b>{{component.material}}</b>
+                            </div>
+                            <div>
+                                Inward No : <b>{{inv.inwardNo}}</b>
+                                Batch Id : <b>{{inv.testCertificate.batchId}}</b>
+                            </div>
+                            <div>
+                                Qty Nos : <b>{{inv.qtyNos}}</b>
+                                Qty Kgs : <b>{{inv.qtyKgs}}</b>
+                            </div>
+
+                            <div>
+                                Inspected By: <b>{{inv.testCertificate.inspectedBy}}</b>
+                            </div>
+
 
                     </div>
                 </div>
@@ -252,34 +253,34 @@
                 <div>
 
                     <div>
-                        <b style="font-size: 15px;border-bottom: 1px solid"> Process Details</b>
+                        <!--<b style="font-size: 15px;border-bottom: 1px solid"> Process Details</b>-->
 
-                        <table>
-                            <tr>
-                                <td>Heat Treatment : <b>{{component.process}}</b></td>
-                            </tr>
-                            <tr>
-                                <td>Furnace : <b>{{inv.testCertificate.furnace}}</b></td>
-                            </tr>
-                            <tr>
-                                <td>Reff Std / WI /TDS No: <b>{{inv.testCertificate.refStd}}</b></td>
-                            </tr>
-                            <tr>
-                                <td>Heat Code/RC No: <b>{{inv.testCertificate.heatCode}}</b></td>
-                            </tr>
-                            <tr>
-                                <td>Furnace Batch No: <b>{{inv.testCertificate.batchNo}}</b></td>
-                            </tr>
 
-                            <tr>
-                                <td>APS DC No : <b>{{inv.invoiceNo}}</b></td>
-                                <td>APS DC Date : <b>{{inv.creationDate}}</b></td>
-                            </tr>
+                            <div>
+                                Heat Treatment : <b>{{component.process}}</b>
+                            </div>
+                            <div>
+                                 Furnace : <b>{{inv.testCertificate.furnace}}</b>
+                            </div>
+                            <div>
+                                 Reff Std / WI /TDS No: <b>{{inv.testCertificate.refStd}}</b>
+                            </div>
+                            <div>
+                                 Heat Code/RC No: <b>{{inv.testCertificate.heatCode}}</b>
+                            </div>
+                            <div>
+                                 Furnace Batch No: <b>{{inv.testCertificate.batchNo}}</b>
+                            </div>
 
-                            <tr>
-                                <td>Approved By : <b>{{inv.testCertificate.approvedBy}}</b></td>
-                            </tr>
-                        </table>
+                            <div>
+                                APS DC No : <b>{{inv.invoiceNo}}</b>
+                                 APS DC Date : <b>{{inv.creationDate}}</b>
+                            </div>
+
+                            <div>
+                                 Approved By : <b>{{inv.testCertificate.approvedBy}}</b>
+                            </div>
+
                     </div>
                 </div>
             </div>
@@ -391,7 +392,7 @@
             </div>
         </div>
         <!--<div class="text-center"><big>Final Disposition : {{inv.testCertificate.finalDisposition}}</big>-->
-        <div class="text-center"><big>Test Certificate : </big>
+        <div ><b>Test Certificate : </b>
             <b>This is to certify that above parts confirms to the specifications based on test results</b>
         </div>
     </div>
