@@ -1,6 +1,6 @@
 angular.module('invoiceModule', ['chartModule' ])
     .controller('invoiceController', function($scope,$http,$location) {
-        $scope.invoice_fromdata="http://localhost:8080/invoice/all";
+        $scope.invoice_fromdata="http://apsinvoice-pc:8080/invoice/all";
         $scope.invoice_headers="Creation Date,Invoice No,Dispatch Id, Inward No, Party, Component,Material,Qty/Kg,Qty/No,Rate/Kg,Rate/No,Total";
         $scope.invoice_fields="creationDate,invoiceNo,dispatchNo,inwardNo,party,componentName,material,qtyKgs,qtyNos,rateKg,rateNos,total";
         $scope.invoice_button1="Add TC";

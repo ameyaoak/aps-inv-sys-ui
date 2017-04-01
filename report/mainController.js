@@ -2,7 +2,7 @@
     .controller('mainController', function(toastr,$scope,$http,$routeParams) {
 
         if($routeParams.inwardNo!=undefined) {
-            var url = "http://localhost:8080/inward/" + $routeParams.inwardNo;
+            var url = "http://apsinvoice-pc:8080/inward/" + $routeParams.inwardNo;
             $http.get(url)
                 .success(function (data) {//delete if success
 
@@ -122,7 +122,7 @@
 
         callComponentInfo = function(){
 
-            var url = "http://localhost:8080/party/" + $scope.component.partyId;
+            var url = "http://apsinvoice-pc:8080/party/" + $scope.component.partyId;
             $http.get(url)
                 .success(function (data) {//delete if success
                     $scope.party = data;
@@ -135,7 +135,7 @@
         $scope.save = function() {
            var tcObject = $scope.tc;
 
-           var url = 'http://localhost:8080/tc';
+           var url = 'http://apsinvoice-pc:8080/tc';
            $http.put(url,tcObject)
                .success(function(data) {//delete if success
                    toastr.success('Updated TC');

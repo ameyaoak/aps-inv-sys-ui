@@ -4,7 +4,7 @@ angular.module('componentModule', ['tcTableModule', 'toastr'])
         $scope.editParty = false;
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/party/all'
+            url: 'http://apsinvoice-pc:8080/party/all'
             //async: false
         }).success(function (data) {
             $scope.data = data;
@@ -19,7 +19,7 @@ angular.module('componentModule', ['tcTableModule', 'toastr'])
         $scope.updateData = function () {
             $http({
                 method: 'GET',
-                url: 'http://localhost:8080/party/all'
+                url: 'http://apsinvoice-pc:8080/party/all'
                 //async: false
             }).success(function (data) {
                 $scope.data = data;
@@ -30,7 +30,7 @@ angular.module('componentModule', ['tcTableModule', 'toastr'])
         $scope.update = function () {
             var id = $scope.selectedComponent.componentId;
             var payload = $scope.selectedComponent;
-            var url = 'http://localhost:8080/component/' + id;
+            var url = 'http://apsinvoice-pc:8080/component/' + id;
             $http.put(url, payload)
                 .success(function (data) {
                     toastr.success("Update Success");
@@ -45,7 +45,7 @@ angular.module('componentModule', ['tcTableModule', 'toastr'])
             $scope.selectedComponent.partyId = $scope.selectedParty.partyId;
             $scope.selectedComponent.partyName = $scope.selectedParty.partyName;
             var payload = $scope.selectedComponent;
-            var url = 'http://localhost:8080/component/';
+            var url = 'http://apsinvoice-pc:8080/component/';
             $http.post(url, payload)
                 .success(function (data) {
                     toastr.success("Insert Success");

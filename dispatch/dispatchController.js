@@ -1,13 +1,13 @@
 angular.module('dispatchModule', ['toastr'])
     .controller('dispatchController', function (toastr, $scope, $http) {
-        $scope.dispatch_fromdata = "http://localhost:8080/inward/dispatchDisplayAll";
+        $scope.dispatch_fromdata = "http://apsinvoice-pc:8080/inward/dispatchDisplayAll";
         $scope.dispatch_headers = "Dispatch Date,Dispatch No, Inward No, Party, Component,Material,Qty/Kg,Qty/No,Rate/Kg,Rate/No,Total";
         $scope.dispatch_fields = "creationDate,dispatchNo,inwardNo,party,component,material,qtyKgs,qtyNos,rateKg,rateNos,total";
         $scope.dispatch_button1 = "Invoice";
 
 
         updateDataGrid = function () {
-            $http.get('http://localhost:8080/inward/dispatchDisplayAll')
+            $http.get('http://apsinvoice-pc:8080/inward/dispatchDisplayAll')
                 .success(function (datas) {
                     $scope.exportDataVariable = datas;
                 }).error(function (datas) {
@@ -41,7 +41,7 @@ angular.module('dispatchModule', ['toastr'])
             invoiceRecord.componentId = record.componentId;
 
 
-            var url = 'http://localhost:8080/invoice/component/' + invoiceRecord.componentId;
+            var url = 'http://apsinvoice-pc:8080/invoice/component/' + invoiceRecord.componentId;
             $http.post(url, invoiceRecord)
                 .success(function (data) {//delete if success
                     updateDataGrid();
