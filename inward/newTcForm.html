@@ -43,6 +43,14 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
+                            <legend>Loading</legend>
+                            <div><label> Load Temp : <input type="text" ng-model="tc.loadingTemp"></label></div>
+                            <div><label> Load CP% : <input type="text" ng-model="tc.loadingCP"></label></div>
+                            <div><label> PreHT Temp : <input type="text" ng-model="tc.preheatingTemp"></label></div>
+                            <div><label> PreHT CP% : <input type="text" ng-model="tc.preheatingCP"></label></div>
+                            <div><label> PreHT Time : <input type="text" ng-model="tc.preheatingTime"></label></div>
+                        </div>
+                        <div class="col-md-3">
                             <legend>Carburising/Carbonitriding</legend>
                             <div><label> Carb-Act Temp : <input type="text" ng-model="tc.carbonActualTemp"></label></div>
                             <div><label> Carb-Act CP% : <input type="text" ng-model="tc.carbonActualCP"></label></div>
@@ -61,6 +69,8 @@
                             <div><label> Time : <input type="text" ng-model="tc.hardneningTime"></label></div>
                             <div><label> QOT Before : <input type="text" ng-model="tc.temperingQOTBefore"></label></div>
                             <div><label> QOT After : <input type="text" ng-model="tc.temperingQOTAfter"></label></div>
+
+                            <div><label> QDT Sec : <input type="text" ng-model="tc.temperingQDTSec"></label></div>
                         </div>
                         <div class="col-md-3">
                             <legend>Tempering</legend>
@@ -69,15 +79,7 @@
                             <div><label> T2 Temp : <input type="text" ng-model="tc.temperingT2Temp"></label></div>
                             <div><label> T2 Time : <input type="text" ng-model="tc.temperingT2Time"></label></div>
                         </div>
-                        <div class="col-md-3">
-                            <legend>Ann/Norm</legend>
-                            <div><label> Ann. Temp : <input type="text" ng-model="tc.annTemp"></label></div>
-                            <div><label> Ann. Time : <input type="text" ng-model="tc.annTime"></label></div>
-                            <div><label> Norm Temp : <input type="text" ng-model="tc.normTemp"></label></div>
-                            <div><label> Norm Time : <input type="text" ng-model="tc.normTime"></label></div>
-                            <div><label>Total Batch Time : <input type="text" ng-model="tc.totalBatchTime"></label>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="row">
                         <div class="col-md-3">
@@ -102,8 +104,16 @@
                             <div><label> Inspected By : <input type="text" ng-model="tc.inspectedBy"></label></div>
                             <div><label> Approved By : <input type="text" ng-model="tc.approvedBy"></label></div>
                         </div>
+                        <div class="col-md-3">
+                            <legend>Ann/Norm</legend>
+                            <div><label> Ann./Norm Temp : <input type="text" ng-model="tc.annNormTemp"></label></div>
+                            <div><label> Ann./Norm CP% : <input type="text" ng-model="tc.annNormCP"></label></div>
+                            <div><label> Ann./Norm Time : <input type="text" ng-model="tc.annNormTime"></label></div>
+                            <div><label>Total Batch Time : <input type="text" ng-model="tc.totalBatchTime"></label>
+                            </div>
                         </div>
-                    </div>
+                        </div>
+
                 </fieldset>
 
             </div>
