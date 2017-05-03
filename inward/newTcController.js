@@ -1,7 +1,9 @@
 angular.module('newTcModule', ['toastr' ])
     .controller('newTcController', function(toastr,$scope,$http,$routeParams) {
 
-        var url = "http://apsinvoice-pc:8080/tc/"+$routeParams.tcNo;
+        var baseUrl='http://apsinvoice-pc:8080';
+
+        var url = baseUrl+"/tc/"+$routeParams.tcNo;
         $http.get(url)
             .success(function(data) {//delete if success
                 $scope.tc=data;
@@ -16,7 +18,7 @@ angular.module('newTcModule', ['toastr' ])
         $scope.save = function() {
             var tcObject = $scope.tc;
 
-            var url = 'http://apsinvoice-pc:8080/tc';
+            var url = baseUrl+'/tc';
             $http.put(url,tcObject)
                 .success(function(data) {//delete if success
                     toastr.success('Updated TC');

@@ -5,6 +5,7 @@ angular.module('inwardModule', ['toastr' ])
         $scope.inward_fields="creationDate,inwardNo,party,component,material,partNo,process,qtyKgs,qtyNos,rateKg,rateNos,remark";
         $scope.inward_button1="Dispatch";
 
+        var baseUrl='http://apsinvoice-pc:8080';
 
 
         $scope.ok = function() {
@@ -20,7 +21,7 @@ angular.module('inwardModule', ['toastr' ])
         compareWithActualSelectedRecord = function(selectedRec)
         {
             var id = selectedRec.inwardNo;
-            var url = 'http://apsinvoice-pc:8080/inward/'+id;
+            var url = baseUrl+'/inward/'+id;
             $http.get(url)
                 .success(function(data) {
                     if(selectedRec.qtyKgs<= data.qtyKgs && selectedRec.qtyNos<=data.qtyNos){
@@ -47,7 +48,7 @@ angular.module('inwardModule', ['toastr' ])
 
         updateInwardWithBalanceQty = function(data)
         {
-            var url = 'http://apsinvoice-pc:8080/inward/';
+            var url = baseUrl+'/inward/';
             $http.put(url,data)
                 .success(function(data) {
                     //toastr.success('Qty Update Success in inward');
@@ -72,7 +73,7 @@ angular.module('inwardModule', ['toastr' ])
             inwardRecord.rateNos=rec.rateNos;
             inwardRecord.total = rec.qtyKgs * rec.rateKg + rec.qtyNos * rec.rateNos;
 
-            var url="http://apsinvoice-pc:8080/dispatch";
+            var url=baseUrl+"/dispatch";
             $http.post(url,inwardRecord)
                 .success(function(data) {//delete if success
                     updateDataGrid();
@@ -86,7 +87,7 @@ angular.module('inwardModule', ['toastr' ])
         };
 
         updateDataGrid = function() {
-            $http.get('http://apsinvoice-pc:8080/inward/displayAll')
+            $http.get(baseUrl+'/inward/displayAll')
                 .success(function(datas) {
                     $scope.exportDataVariable = datas;
 

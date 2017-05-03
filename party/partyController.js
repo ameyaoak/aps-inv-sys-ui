@@ -1,10 +1,12 @@
 angular.module('partyModule', ['toastr'])
     .controller('partyController', function (toastr, $scope, $http) {
 
+        var baseUrl='http://apsinvoice-pc:8080';
+
         $scope.editParty = false;
         $http({
             method: 'GET',
-            url: 'http://apsinvoice-pc:8080/party/all'
+            url: baseUrl+'/party/all'
             //async: false
         }).success(function (data) {
             $scope.parties = data;
@@ -17,7 +19,7 @@ angular.module('partyModule', ['toastr'])
             $scope.update = function () {
                 var id = $scope.party.selectedOption.partyId;
                 var payload = $scope.party.selectedOption;
-                var url = 'http://apsinvoice-pc:8080/party/' + id;
+                var url = baseUrl+'/party/' + id;
                 $http.put(url, payload)
                     .success(function (data) {
                         toastr.success('Party Updated Successfully');
@@ -29,7 +31,7 @@ angular.module('partyModule', ['toastr'])
             $scope.save = function () {
                 console.log($scope.party.selectedOption);
                 var payload = $scope.party.selectedOption;
-                var url = 'http://apsinvoice-pc:8080/party/';
+                var url = baseUrl+'/party/';
                 $http.post(url, payload)
                     .success(function (data) {
                         toastr.success("Party Added Successfully");
