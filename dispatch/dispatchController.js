@@ -5,9 +5,10 @@ angular.module('dispatchModule', ['toastr'])
         $scope.dispatch_fields = "creationDate,dispatchNo,inwardNo,party,partyDc,partyDate,component,material,partNo,process,qtyKgs,qtyNos,rateKg,rateNos,total";
         $scope.dispatch_button1 = "Make Invoice";
 
+        var baseUrl='http://mainserver:8080';
 
-        updateDataGrid = function () {
-            $http.get('http://mainserver:8080/inward/dispatchDisplayAll')
+        updateDataGrid = function () { 
+            $http.get(baseUrl+'/inward/dispatchDisplayAll') 
                 .success(function (datas) {
                     $scope.exportDataVariable = datas;
                 }).error(function (datas) {
@@ -44,8 +45,8 @@ angular.module('dispatchModule', ['toastr'])
             invoiceRecord.total = record.total;
             invoiceRecord.componentId = record.componentId;
 
-
-            var url = 'http://mainserver:8080/invoice/component/' + invoiceRecord.componentId;
+ 
+            var url = baseUrl+'/invoice/component/' + invoiceRecord.componentId; 
             $http.post(url, invoiceRecord)
                 .success(function (data) {//delete if success
                     updateDataGrid();

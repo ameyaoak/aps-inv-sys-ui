@@ -1,7 +1,9 @@
 angular.module('newTcModule', ['toastr' ])
     .controller('newTcController', function(toastr,$scope,$http,$routeParams) {
+ 
+        var baseUrl='http://mainserverc:8080';
 
-        var url = "http://mainserver:8080/tc/"+$routeParams.tcNo;
+        var url = baseUrl+"/tc/"+$routeParams.tcNo; 
         $http.get(url)
             .success(function(data) {//delete if success
                 $scope.tc=data;
@@ -14,9 +16,8 @@ angular.module('newTcModule', ['toastr' ])
 
 
         $scope.save = function() {
-            var tcObject = $scope.tc;
-
-            var url = 'http://mainserver:8080/tc';
+            var tcObject = $scope.tc; 
+            var url = baseUrl+'/tc'; 
             $http.put(url,tcObject)
                 .success(function(data) {//delete if success
                     toastr.success('Updated TC');

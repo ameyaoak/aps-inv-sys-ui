@@ -1,10 +1,10 @@
 angular.module('newInwardModule', ['toastr' ])
     .controller('newInwardController', function(toastr,$scope,$http) {
-
+        var baseUrl='http://mainserver:8080';
         var inwardEntry={};
         $http({
-            method: 'GET',
-            url: 'http://mainserver:8080/party/all'
+            method: 'GET', 
+            url: baseUrl+'/party/all' 
             //async: false
         }).success(function(data) {
             $scope.data = data;
@@ -33,8 +33,8 @@ angular.module('newInwardModule', ['toastr' ])
             saveInward(inwardEntry);
         };
 
-        saveInward = function(inwardEntry) {
-            var url = 'http://mainserver:8080/inward';
+        saveInward = function(inwardEntry) { 
+            var url = baseUrl+'/inward'; 
             $http.post(url,inwardEntry)
                 .success(function(data) {//delete if success
                     toastr.success('Added Inward');

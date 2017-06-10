@@ -1,8 +1,10 @@
  angular.module('mainModule', ['toastr' ])
     .controller('mainController', function(toastr,$scope,$http,$routeParams) {
 
-        if($routeParams.inwardNo!=undefined) {
-            var url = "http://mainserver:8080/inward/" + $routeParams.inwardNo;
+        var baseUrl='http://mainserver:8080';
+
+        if($routeParams.inwardNo!=undefined) { 
+            var url = baseUrl+"/inward/" + $routeParams.inwardNo; 
             $http.get(url)
                 .success(function (data) {//delete if success
 
@@ -121,8 +123,8 @@
 
 
         callComponentInfo = function(){
-
-            var url = "http://mainserver:8080/party/" + $scope.component.partyId;
+ 
+            var url = baseUrl+"/party/" + $scope.component.partyId; 
             $http.get(url)
                 .success(function (data) {//delete if success
                     $scope.party = data;
@@ -133,9 +135,8 @@
 
 
         $scope.save = function() {
-           var tcObject = $scope.tc;
-
-           var url = 'http://mainserver:8080/tc';
+           var tcObject = $scope.tc; 
+           var url = baseUrl+'/tc'; 
            $http.put(url,tcObject)
                .success(function(data) {//delete if success
                    toastr.success('Updated TC');

@@ -5,6 +5,7 @@ angular.module('inwardModule', ['toastr' ])
         $scope.inward_fields="creationDate,inwardNo,party,partyDc,partyDate,component,material,partNo,process,qtyKgs,qtyNos,rateKg,rateNos,remark";
         $scope.inward_button1="Dispatch Jobs";
 
+        var baseUrl='http://mainserver:8080';
 
 
         $scope.ok = function() {
@@ -19,8 +20,8 @@ angular.module('inwardModule', ['toastr' ])
 
         compareWithActualSelectedRecord = function(selectedRec)
         {
-            var id = selectedRec.inwardNo;
-            var url = 'http://mainserver:8080/inward/'+id;
+            var id = selectedRec.inwardNo; 
+            var url = baseUrl+'/inward/'+id; 
             $http.get(url)
                 .success(function(data) {
                     if(selectedRec.qtyKgs<= data.qtyKgs && selectedRec.qtyNos<=data.qtyNos){
@@ -46,8 +47,8 @@ angular.module('inwardModule', ['toastr' ])
         };
 
         updateInwardWithBalanceQty = function(data)
-        {
-            var url = 'http://mainserver:8080/inward/';
+        {  
+            var url = baseUrl+'/inward/'; 
             $http.put(url,data)
                 .success(function(data) {
                     //toastr.success('Qty Update Success in inward');
@@ -70,9 +71,8 @@ angular.module('inwardModule', ['toastr' ])
             inwardRecord.qtyNos=rec.qtyNos;
             inwardRecord.rateKg=rec.rateKg;
             inwardRecord.rateNos=rec.rateNos;
-            inwardRecord.total = rec.qtyKgs * rec.rateKg + rec.qtyNos * rec.rateNos;
-
-            var url="http://mainserver:8080/dispatch";
+            inwardRecord.total = rec.qtyKgs * rec.rateKg + rec.qtyNos * rec.rateNos; 
+            var url=baseUrl+"/dispatch"; 
             $http.post(url,inwardRecord)
                 .success(function(data) {//delete if success
                     updateDataGrid();
@@ -86,7 +86,11 @@ angular.module('inwardModule', ['toastr' ])
         };
 
         updateDataGrid = function() {
+<<<<<<< HEAD
             $http.get('http://mainserver:8080/inward/displayAll')
+=======
+            $http.get(baseUrl+'/inward/displayAll')
+>>>>>>> branch 'master' of https://github.com/ameyaoak/aps-inv-sys-ui.git
                 .success(function(datas) {
                     $scope.exportDataVariable = datas;
 
