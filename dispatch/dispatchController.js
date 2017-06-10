@@ -1,13 +1,13 @@
 angular.module('dispatchModule', ['toastr'])
     .controller('dispatchController', function (toastr, $scope, $http) {
-        $scope.dispatch_fromdata = "http://apsinvoice-pc:8080/inward/dispatchDisplayAll";
-        $scope.dispatch_headers = "Dispatch Date,Dispatch No, Inward No, Party, Component,Material,Qty/Kg,Qty/No,Rate/Kg,Rate/No,Total";
-        $scope.dispatch_fields = "creationDate,dispatchNo,inwardNo,party,component,material,qtyKgs,qtyNos,rateKg,rateNos,total";
-        $scope.dispatch_button1 = "Invoice";
+        $scope.dispatch_fromdata = "http://mainserver:8080/inward/dispatchDisplayAll";
+        $scope.dispatch_headers = "Dispatch Date,Dispatch No, Inward No, Party,Party DC,Party DC Date, Component,Material,Part No,Process,Qty/Kg,Qty/No,Rate/Kg,Rate/No,Total";
+        $scope.dispatch_fields = "creationDate,dispatchNo,inwardNo,party,partyDc,partyDate,component,material,partNo,process,qtyKgs,qtyNos,rateKg,rateNos,total";
+        $scope.dispatch_button1 = "Make Invoice";
 
 
         updateDataGrid = function () {
-            $http.get('http://apsinvoice-pc:8080/inward/dispatchDisplayAll')
+            $http.get('http://mainserver:8080/inward/dispatchDisplayAll')
                 .success(function (datas) {
                     $scope.exportDataVariable = datas;
                 }).error(function (datas) {
@@ -30,9 +30,13 @@ angular.module('dispatchModule', ['toastr'])
             var invoiceRecord = {};
             invoiceRecord.inwardNo = record.inwardNo;
             invoiceRecord.party = record.party;
+            invoiceRecord.partyDc = record.partyDc;
+            invoiceRecord.partyDate = record.partyDate;
             invoiceRecord.dispatchNo = record.dispatchNo;
             invoiceRecord.componentName = record.component;
             invoiceRecord.material = record.material;
+            invoiceRecord.partNo = record.partNo;
+            invoiceRecord.process = record.process
             invoiceRecord.qtyKgs = record.qtyKgs;
             invoiceRecord.qtyNos = record.qtyNos;
             invoiceRecord.rateKg = record.rateKg;
@@ -41,7 +45,7 @@ angular.module('dispatchModule', ['toastr'])
             invoiceRecord.componentId = record.componentId;
 
 
-            var url = 'http://apsinvoice-pc:8080/invoice/component/' + invoiceRecord.componentId;
+            var url = 'http://mainserver:8080/invoice/component/' + invoiceRecord.componentId;
             $http.post(url, invoiceRecord)
                 .success(function (data) {//delete if success
                     updateDataGrid();

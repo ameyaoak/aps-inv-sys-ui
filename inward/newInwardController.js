@@ -4,7 +4,7 @@ angular.module('newInwardModule', ['toastr' ])
         var inwardEntry={};
         $http({
             method: 'GET',
-            url: 'http://apsinvoice-pc:8080/party/all'
+            url: 'http://mainserver:8080/party/all'
             //async: false
         }).success(function(data) {
             $scope.data = data;
@@ -34,7 +34,7 @@ angular.module('newInwardModule', ['toastr' ])
         };
 
         saveInward = function(inwardEntry) {
-            var url = 'http://apsinvoice-pc:8080/inward';
+            var url = 'http://mainserver:8080/inward';
             $http.post(url,inwardEntry)
                 .success(function(data) {//delete if success
                     toastr.success('Added Inward');
