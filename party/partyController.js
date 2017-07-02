@@ -30,6 +30,7 @@ angular.module('partyModule', ['toastr'])
 
             $scope.save = function () {
                 console.log($scope.party.selectedOption); 
+                var payload = $scope.party.selectedOption;
                 var url = baseUrl+'/party/'; 
                 $http.post(url, payload)
                     .success(function (data) {

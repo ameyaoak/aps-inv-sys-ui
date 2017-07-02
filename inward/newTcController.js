@@ -1,7 +1,7 @@
 angular.module('newTcModule', ['toastr' ])
     .controller('newTcController', function(toastr,$scope,$http,$routeParams) {
  
-        var baseUrl='http://mainserverc:8080';
+        var baseUrl='http://mainserver:8080';
 
         var url = baseUrl+"/tc/"+$routeParams.tcNo; 
         $http.get(url)
