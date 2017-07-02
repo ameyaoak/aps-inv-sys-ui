@@ -85,12 +85,9 @@ angular.module('inwardModule', ['toastr' ])
                 });
         };
 
-        updateDataGrid = function() {
-<<<<<<< HEAD
-            $http.get('http://mainserver:8080/inward/displayAll')
-=======
-            $http.get(baseUrl+'/inward/displayAll')
->>>>>>> branch 'master' of https://github.com/ameyaoak/aps-inv-sys-ui.git
+        updateDataGrid = function() { 
+            
+            $http.get(baseUrl+'/inward/displayAll') 
                 .success(function(datas) {
                     $scope.exportDataVariable = datas;
 
