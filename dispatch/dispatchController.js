@@ -43,6 +43,11 @@ angular.module('dispatchModule', ['toastr'])
             invoiceRecord.rateKg = record.rateKg;
             invoiceRecord.rateNos = record.rateNos;
             invoiceRecord.total = record.total;
+
+            invoiceRecord.amount=record.total;
+            invoiceRecord.tax=record.total * 0.18;
+            invoiceRecord.total = record.amount + invoiceRecord.tax;
+
             invoiceRecord.componentId = record.componentId;
 
  

@@ -77,9 +77,8 @@
                         <p>Phone : <b>{{party.partyPhone}}</b></p>
 
                         <p>E-Mail : <b>{{party.partyEmail}}</b></p>
-                        <p>State : <b>MH</b></p>
-                        <p>State Code : <b>27</b></p>
-                        <p>No : <b>{{party.partyEmail}}</b></p>
+                        <p>State : <b>{{party.partyState}}</b>&nbsp;State Code : <b>{{party.partyStateCode}}</b></p>
+                        <p>Gst No : <b>{{party.partyGst}}</b></p>
                     </div>
 
                 </div>
@@ -112,7 +111,7 @@
                 <td class="text-right"><b>{{inv.rateKg}}</b></td>
                 <td class="text-right"><b>{{inv.qtyNos}}</b></td>
                 <td class="text-right"><b>{{inv.rateNos}}</b></td>
-                <td class="text-right"><b>{{inv.total}}</b></td>
+                <td class="text-right"><b>{{inv.amount}}</b></td>
             </tr>
             <!--</tr>-->
 
@@ -133,11 +132,10 @@
 
             <!--<tr ng-repeat="data in inv.invGrid">-->
             <tr>
-                <td class="text-right">1</td>
-                <td class="text-right"><b>{{inv.total*0.09}}</b></td>
-                <td class="text-right"><b>{{inv.total*0.09}}</b></td>
-                <td class="text-right"><b>{{inv.total*0.18}}</b></td>
-                <td class="text-right"><b>{{inv.total+inv.total*0.18}}</b></td>
+                <td class="text-right"><b>{{inv.amount*0.09}}</b></td>
+                <td class="text-right"><b>{{inv.amount*0.09}}</b></td>
+                <td class="text-right"><b>{{inv.tax}}</b></td>
+                <td class="text-right"><b>{{inv.total}}</b></td>
             </tr>
             <!--</tr>-->
 

@@ -44,6 +44,24 @@
                         <p ng-show="partyForm.supplierCode.$invalid && !partyForm.supplierCode.$pristine"
                            class="validation-block">Supplier Code is required.</p>
 
+                        <label>
+                            State : <input type=text name="partyState"
+                                                   ng-model="party.selectedOption.partyState" required></label>
+                        <p ng-show="partyForm.partyState.$invalid && !partyForm.partyState.$pristine"
+                           class="validation-block">State is required.</p>
+
+                        <label>
+                            State Code : <input type=text name="partyStateCode"
+                                                   ng-model="party.selectedOption.partyStateCode" required></label>
+                        <p ng-show="partyForm.partyStateCode.$invalid && !partyForm.partyStateCode.$pristine"
+                           class="validation-block">State Code is required.</p>
+
+                        <label>
+                            GST Number : <input type=text name="partyGst"
+                                                   ng-model="party.selectedOption.partyGst" required></label>
+                        <p ng-show="partyForm.partyGst.$invalid && !partyForm.partyGst.$pristine"
+                           class="validation-block">GST Number is required.</p>
+
                         <button type="button" class="btn btn-primary" ng-click="update()"
                                 ng-disabled="partyForm.$invalid" ng-show="editParty">Update Party
                         </button>
