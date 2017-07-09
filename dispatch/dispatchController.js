@@ -45,8 +45,8 @@ angular.module('dispatchModule', ['toastr'])
             invoiceRecord.total = record.total;
 
             invoiceRecord.amount=record.total;
-            invoiceRecord.tax=record.total * 0.18;
-            invoiceRecord.total = record.amount + invoiceRecord.tax;
+            invoiceRecord.tax=parseFloat(record.total * 0.18).toFixed(2);
+            invoiceRecord.total = parseFloat(record.total * 1.18).toFixed(2);
 
             invoiceRecord.componentId = record.componentId;
 

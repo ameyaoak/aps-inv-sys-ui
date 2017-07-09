@@ -9,12 +9,12 @@
                 </h1>
                 Gat no. 263, Post Pirangut, Tal. Mulshi, Dist. Pune 412115
                 <br>Phone-020-66524944 | E-Mail : apsheat@gmail.com
-                <br>GSTN : 965082356032957392750329
+                <br>GSTN : 27ADLPS5295B1Z7
                 <br>
 
             </div>
             <div class="col-xs-4 text-right">
-                <h3>DELIVERY CHALLAN /
+                <h3>TAX
                     INVOICE</h3> Invoice <big>#{{inv.invoiceNo}}</big>
                 <br>Date : {{inv.creationDate}}
 
@@ -66,7 +66,7 @@
             <div class="col-xs-5  text-left">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <big> Party and Shipped To Details</big>
+                        <big> Party Billing and Shipping Details</big>
 
                     </div>
                     <div class="panel-body">
@@ -122,20 +122,18 @@
         <table class="table table-bordered table-condensed">
             <thead>
             <tr>
-                <th>CGST (9%) for </th>
-                <th>SGST (9%) for </th>
-                <th>Total Tax</th>
-                <th>Total Amount</th>
+                <th>CGST (9%) under SAC 998898 </th>
+                <th>SGST (9%) under SAC 998898 </th>
+                <th>Total Tax</th> 
             </tr>
             </thead>
             <tbody>
 
             <!--<tr ng-repeat="data in inv.invGrid">-->
             <tr>
-                <td class="text-right"><b>{{inv.amount*0.09}}</b></td>
-                <td class="text-right"><b>{{inv.amount*0.09}}</b></td>
-                <td class="text-right"><b>{{inv.tax}}</b></td>
-                <td class="text-right"><b>{{inv.total}}</b></td>
+                <td class="text-right"><b>{{inv.cgst}}</b></td>
+                <td class="text-right"><b>{{inv.sgst}}</b></td>
+                <td class="text-right"><b>{{inv.tax}}</b></td> 
             </tr>
             <!--</tr>-->
 
@@ -183,8 +181,9 @@
 
 
                         </p>
-                    </div>
+                    </div> 
                 </div>
+                 * This tax invoice may be treated as delivery challan
             </div>
             <div class="col-xs-5 text-left">
                 <div class="span7">
