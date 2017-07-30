@@ -84,9 +84,9 @@
                     <div class="row">
                         <div class="col-md-3">
                             <legend>Micro Grid (, seperated)</legend>
-                            <div><label> mm : <input type="text" ng-model="tc.mm"></label></div>
-                            <div><label> cut off: <input type="text" ng-model="tc.cut"></label></div>
-                            <div><label> hv : <input type="text" ng-model="tc.hv"></label></div>
+                            <div><label> mm : <input type="text" ng-model="tc.mm"></label> [ {{countmm}} ]</div>
+                            <div><label> cut off: <input type="text" ng-model="tc.cut"></label> [ {{countcut}} ]</div>
+                            <div><label> hv : <input type="text" ng-model="tc.hv"></label> [ {{counthv}} ]</div>
                             <div><label> load : <input type="text" ng-model="tc.loadVal"></label></div>
                         </div>
                         <div class="col-md-3">
@@ -101,7 +101,7 @@
                         </div>
                         <div class="col-md-3">
                             <legend>Operator Info</legend>
-                            <div><label> Inspected By : <input type="text" ng-model="tc.inspectedBy"></label></div>
+                            <div><label> Prepared By : <input type="text" ng-model="tc.inspectedBy"></label></div>
                             <div><label> Approved By : <input type="text" ng-model="tc.approvedBy"></label></div>
                         </div>
                         <div class="col-md-3">
