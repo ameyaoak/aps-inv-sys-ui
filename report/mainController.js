@@ -18,8 +18,9 @@
                     $scope.poNo = data.poNo;
                     $scope.poDate = data.poDate;
                     $scope.inv.creationDate = new Date($scope.inv.creationDate).toLocaleDateString();
-                    $scope.inv.sgst=parseFloat($scope.inv.total * 0.09).toFixed(2);
-                    $scope.inv.cgst=parseFloat($scope.inv.total * 0.09).toFixed(2);
+                    $scope.inv.sgst=parseFloat($scope.inv.tax/2);
+                    $scope.inv.cgst=parseFloat($scope.inv.tax/2);
+                    $scope.inv.total = ($scope.inv.total).toFixed(0);
                     	
                     $scope.component=data.component;
                     callComponentInfo();
