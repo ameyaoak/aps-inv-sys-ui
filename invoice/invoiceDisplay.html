@@ -1,29 +1,26 @@
-<div class="no-print"><div>
-  <div>
-      <button ng-click="report()" class="btn btn-primary">Make Report</button>
-      <button ng-click="clear()" class="btn btn-default">Clear</button>
-      <button ng-click="tcForRec()" class="btn btn-link">{{invoice_button1}}</button>
-
-  </div>
-  <div>
-    <h4>Invoice Details</h4><div>
-    <div>
-      <table object-table=""
-             from-url={{invoice_fromdata}}
-             data="exportDataVariable" display="50"
-             headers={{invoice_headers}}
-             fields={{invoice_fields}}
-             sorting="compound"
-             editable="false" resize="true"
-             drag-columns="true"
-             selected-model="report.selected"
-             select="single"
-             resize="true">
-
-
-      </table>
-    </div></div></div>
- </div></div>
+<div>
+<div>
+ <button ng-click="report()" class="btn btn-primary">Make
+				Report</button>
+			<button ng-click="clear()" class="btn btn-default">Clear</button>
+			<button ng-click="tcForRec()" class="btn btn-link">{{invoice_button1}}</button>
 
 </div>
-   
+<div><h4>Invoice Details</h4></div>
+  <div>
+    	 
+		<table object-table=""
+           from-url={{invoice_fromdata}}
+           data="exportDataVariable" display="3000"
+           headers={{invoice_headers}}
+           fields={{invoice_fields}}
+           sorting="compound"
+           editable="false" resize="true"
+           drag-columns="true"
+           selected-model="report.selected"
+           select="single"
+           resize="true">
+           </table>
+  </div>
+
+   </div>

@@ -8,7 +8,7 @@
   <div>
     <table object-table=""
            from-url={{inward_fromdata}}
-           data="exportDataVariable" display="50"
+           data="exportDataVariable" display="3000"
            headers={{inward_headers}}
            fields={{inward_fields}}
            sorting="compound"
@@ -28,6 +28,16 @@
         <td>{{item.material}}</td>
         <td>{{item.partNo}}</td>
         <td>{{item.process}}</td>
+        
+        <td>{{item.coreHd}}</td>
+        <td>{{item.surfaceHd}}</td>
+        <td>{{item.caseDepth}}</td>
+         <td>{{item.micro}}</td>
+        <td>{{item.distortation}}</td>
+        <td>{{item.layerThickness}}</td>
+        <td>{{item.apperance}}</td>
+        <td>{{item.wtt}}</td>
+        
         <td type="number" editable style="background-color:yellow;">{{item.qtyKgs}}</td>
         <td editable style="background-color:yellow;">{{item.qtyNos}}</td>
         <td>{{item.rateKg}}</td>
@@ -37,3 +47,4 @@
       </tbody>
     </table>
   </div>
+  

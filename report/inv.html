@@ -14,8 +14,8 @@
             </div>
             <div class="col-xs-4 text-right">
                 <h3>TAX
-                    INVOICE</h3> Invoice <big>#{{inv.invoiceNo}}</big>
-                <br>Date : {{inv.creationDate}}
+                    INVOICE</h3> Invoice <big><b>#{{inv.invoiceNo}}</b></big>
+                <br>Date : <big><b>{{inv.creationDate}}</b></big>
 
             </div>
         </div>
@@ -95,7 +95,7 @@
                     <th class="text-center">Rate/Kg</th>
                     <th class="text-center">Qty/Nos</th>
                     <th class="text-center">Rate/Nos</th>
-                    <th class="text-center">Amount</th>
+                    <th class="text-center">Taxable Amount</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,14 +103,14 @@
             <!--<tr ng-repeat="data in inv.invGrid">-->
             <tr>
                 <td class="text-center">1</td>
-                <td class="text-center"><b>{{inv.inwardNo}}</b></td>
-                <td class="text-center"><b>{{partyDc}}</b></td>
-                <td class="text-center"><b>{{partyDate}}</b></td>
-                <td class="text-center"><b>{{inv.qtyKgs}}</b></td>
-                <td class="text-center"><b>{{inv.rateKg}}</b></td>
-                <td class="text-center"><b>{{inv.qtyNos}}</b></td>
-                <td class="text-center"><b>{{inv.rateNos}}</b></td>
-                <td class="text-center"><b>{{inv.amount}}</b></td>
+                <td class="text-center">{{inv.inwardNo}}</td>
+                <td class="text-center">{{partyDc}}</td>
+                <td class="text-center">{{partyDate}}</td>
+                <td class="text-center">{{inv.qtyKgs}}</td>
+                <td class="text-center">{{inv.rateKg}}</td>
+                <td class="text-center">{{inv.qtyNos}}</td>
+                <td class="text-center">{{inv.rateNos}}</td>
+                <td class="text-center">{{inv.amount}}</td>
             </tr>
             <!--</tr>--> 
             </tbody>
@@ -128,9 +128,9 @@
  
             <!--<tr ng-repeat="data in inv.invGrid">-->
             <tr>
-                <td class="text-center"><b>{{inv.cgst}}</b></td>
-                <td class="text-center"><b>{{inv.sgst}}</b></td>
-                <td class="text-center"><b>{{inv.tax}}</b></td>
+                <td class="text-center">{{inv.cgst}}</td>
+                <td class="text-center">{{inv.sgst}}</td>
+                <td class="text-center">{{inv.tax}}</td>
             </tr>
             <!--</tr>-->
  
@@ -140,7 +140,7 @@
             <div class="col-xs-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Words: {{inv.inWords}}
+                        <big> <b>Words: {{inv.inWords}}</b></big>
 
                     </div>
 
@@ -151,7 +151,7 @@
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <div class="text-center">
-                                <b>Total: {{inv.total}}</b>
+                               <big> <b>Total Invoice Amount: {{inv.total}}</b> </big>
                             </div>
                         </div>
 
@@ -225,8 +225,8 @@
 
             </div>
             <div class="col-xs-4 text-right">
-                <h3> METALLURGICAL TEST REPORT</h3> Report <big>#{{inv.invoiceNo}}</big>
-                <br>Date : {{inv.creationDate}}
+                <h3> METALLURGICAL TEST REPORT</h3> Report <big><b>#{{inv.invoiceNo}}</b></big>
+                <br>Date :<big><b> {{inv.creationDate}}</b></big>
             </div>
         </div>
         <br>
