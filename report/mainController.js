@@ -17,7 +17,7 @@
                     $scope.partyDate = data.partyDate;
                     $scope.poNo = data.poNo;
                     $scope.poDate = data.poDate;
-                    $scope.inv.creationDate = new Date($scope.inv.creationDate).toLocaleDateString();
+                    $scope.inv.creationDate = new Date($scope.inv.creationDate).toLocaleDateString('en-GB');
                     $scope.inv.sgst=parseFloat($scope.inv.tax/2);
                     $scope.inv.cgst=parseFloat($scope.inv.tax/2);
                     $scope.inv.total = ($scope.inv.total).toFixed(0);

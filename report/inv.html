@@ -30,31 +30,31 @@
                     <div class="panel-body">
 
                         <table>
-                            <tr>
+                            <tr ng-hide="component.componentName == 'NA'">
                                 <td>Part Name : <b>{{component.componentName}}</b></td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="component.partNo == 'NA'">
                                 <td>Part No : <b>{{component.partNo}}</b></td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="component.material == 'NA'">
                                 <td>Material : <b>{{component.material}}</b></td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="component.process == 'NA'">
                                 <td>Heat Treatment : <b>{{component.process}}</b></td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="inv.testCertificate.heatCode == 'NA'">
                                 <td>Heat Code : <b>{{inv.testCertificate.heatCode}}</b></td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="inv.testCertificate.batchNo == 'NA'">
                                 <td>Furnace Batch No : <b>{{inv.testCertificate.batchNo}}</b></td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="inv.testCertificate.batchId == 'NA'">
                                 <td>Batch Id : <b>{{inv.testCertificate.batchId}}</b></td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="poNo === 'NA'">
                                 <td>PO No : <b>{{poNo}}</b></td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="poDate === 'NA'">
                                 <td>PO Date : <b>{{poDate}}</b></td>
                             </tr>
                         </table>
@@ -264,19 +264,19 @@
                     <div>
                         <!--<b style="font-size: 15px;border-bottom: 1px solid"> Process Details</b>-->
 
-                        <div>
+                        <div ng-hide="component.process == 'NA'">
                             Heat Treatment : <b>{{component.process}}</b>
                         </div>
-                        <div>
+                        <div ng-hide="inv.testCertificate.furnace == 'NA'">
                             Furnace : <b>{{inv.testCertificate.furnace}}</b>
                         </div>
-                        <div>
+                        <div ng-hide="inv.testCertificate.refStd == 'NA'">
                             Ref Std / WI / Drg /TDS No: <b>{{inv.testCertificate.refStd}}</b>
                         </div>
-                        <div>
-                            Heat Code/RC No: <b>{{inv.testCertificate.heatCode}}</b>
+                        <div ng-hide="inv.testCertificate.heatCode == 'NA'">
+                            Heat Code/RC No/WO No: <b>{{inv.testCertificate.heatCode}}</b>
                         </div>
-                        <div>
+                        <div ng-hide="inv.testCertificate.batchNo == 'NA'">
                             Furnace Batch No: <b>{{inv.testCertificate.batchNo}}</b>
                         </div>
 
@@ -336,7 +336,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" ng-show={{inv.testCertificate.mm}}>
 
             <!--<div class="col-xs-2">-->
             <!--<div class="dropzone no-print" file-dropzone="[image/png, image/jpeg, image/gif]"-->
@@ -374,7 +374,7 @@
                 <div class="col-xs-8 text-left">
                     <br><br>
                     <br><br>       
-                    <br> Prepared By: <b>{{inv.testCertificate.inspectedBy}}</b>
+                    <br> Checked By: <b>{{inv.testCertificate.inspectedBy}}</b>
                 </div>
 
                 <div class="col-xs-4 text-left">

@@ -1,8 +1,8 @@
 angular.module('inwardModule', ['toastr' ])
     .controller('inwardController', function(toastr,$scope,$http) {
         $scope.inward_fromdata="http://mainserver:8080/inward/displayAll";
-        $scope.inward_headers="Creation Date,Inward No, Party,Party DC,Party DC Date, Component,Material,Part No,Process,Core Hd, Surface Hd, Case Depth, Micro, Distortation, Layer Thickness, Apperance, Wtt,Qty Kg,Qty No,Rate Kg,Rate No,Inspection";
-        $scope.inward_fields="creationDate,inwardNo,party,partyDc,partyDate,component,material,partNo,process,coreHd, surfaceHd, caseDepth, micro, distortation, layerThickness, apperance, wtt,qtyKgs,qtyNos,rateKg,rateNos,remark";
+        $scope.inward_headers="Creation Date,Inward No, Party,Party DC,Party DC Date, Component,Material,Part No,Process,Core Hd, Surface Hd, Case Depth, Micro, Distortation, Layer Thickness, Apperance,As Quench Hd, Hd After Tempering,Partial Decarb, Wtt,Qty Kg,Qty No,Rate Kg,Rate No,Inspection";
+        $scope.inward_fields="creationDate,inwardNo,party,partyDc,partyDate,component,material,partNo,process,coreHd, surfaceHd, caseDepth, micro, distortation, layerThickness, apperance,asQuenchHd,hdAfterTempering,partialDecarb,wtt,qtyKgs,qtyNos,rateKg,rateNos,remark";
         $scope.inward_button1="Dispatch Jobs";
 
         var baseUrl='http://mainserver:8080';
