@@ -1,6 +1,7 @@
  angular.module('mainModule', ['toastr' ])
     .controller('mainController', function(toastr,$scope,$http,$routeParams) {
 
+    	$scope.graph=true;
         var baseUrl='http://mainserver:8080';
 
         if($routeParams.inwardNo!=undefined) { 

@@ -49,6 +49,10 @@
 				templateUrl : 'component/componentInput.html',
 				controller  : 'componentControllers'  
 			})
+			.when('/report', { 
+				templateUrl : 'report/report.html',
+				controller  : 'mainController'  
+			})
 			 .otherwise({ redirectTo: 'login/welcome.html' });
 	});
 

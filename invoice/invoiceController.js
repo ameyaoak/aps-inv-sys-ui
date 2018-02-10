@@ -1,5 +1,5 @@
-angular.module('invoiceModule', ['chartModule' ])
-    .controller('invoiceController', function($scope,$http,$location) {
+angular.module('invoiceModule', ['chartModule','toastr' ])
+    .controller('invoiceController', function(toastr,$scope,$http,$location) {
         $scope.invoice_fromdata="http://mainserver:8080/invoice/all";
         $scope.invoice_headers="Creation Date,Invoice No,Dispatch Id, Inward No, Party,Party DC,Party DC Date, Component,Material,Part No,Process,Qty/Kg,Qty/No,Rate/Kg,Rate/No,Taxable Amt,CGST,SGST,Total Tax,Invoice Amt";
         $scope.invoice_fields="creationDate,invoiceNo,dispatchNo,inwardNo,party,partyDc,partyDate,componentName,material,partNo,process,qtyKgs,qtyNos,rateKg,rateNos,taxableAmount,cgst,sgst,totalTax,total";
@@ -27,5 +27,18 @@ angular.module('invoiceModule', ['chartModule' ])
             $scope.report.selected = []
         };
 
+        $scope.delInvoice = function () {
+        	var selectedRec = $scope.report.selected;
+            $scope.selectedRecForTc = selectedRec;
+            if(confirm("Sure you want to delete ?") && selectedRec.testCertificate!=undefined){
+            	var url = "http://mainserver:8080/invoice/"+selectedRec.invoiceNo; 
+                $http.delete(url)
+                    .success(function(data) {//delete if success
+                    	toastr.success('Invoice Deleted');
+                    }).error(function(data){
+                        toastr.error('Invoice Cannot Be Deleted');
+                    });
+            }
+        };
 
     });

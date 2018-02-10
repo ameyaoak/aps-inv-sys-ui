@@ -336,8 +336,9 @@
             </div>
         </div>
 
-        <div class="row" ng-show={{inv.testCertificate.mm}}>
-
+        <div class="row">
+        
+        <input type="checkbox" checked="checked" ng-model="graph" class="no-print" value="Graph">
             <!--<div class="col-xs-2">-->
             <!--<div class="dropzone no-print" file-dropzone="[image/png, image/jpeg, image/gif]"-->
             <!--file="image" file-name="imageFileName" data-max-file-size="3">-->
@@ -348,9 +349,8 @@
             <!--<img ng-src={{image}} />-->
             <!--<span class="file-name">{{imageFileName}}</span>-->
             <!--</div>-->
-            <!--</div>-->
-
-            <div class="col-xs-10 ">
+            <!--</div>--> 
+            <div class="col-xs-10" ng-show="graph">
                 <div style="float:left;">
                     <chart config="chartConfig"></chart>
                 </div>

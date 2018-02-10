@@ -46,26 +46,42 @@
                             <legend>Loading</legend>
                             <div><label> Load Temp : <input type="text" ng-model="tc.loadingTemp"></label></div>
                             <div><label> Load CP% : <input type="text" ng-model="tc.loadingCP"></label></div>
-                            <div><label> PreHT Temp : <input type="text" ng-model="tc.preheatingTemp"></label></div>
-                            <div><label> PreHT CP% : <input type="text" ng-model="tc.preheatingCP"></label></div>
+                            <div><label> PreHT Temp : <input type="text" ng-model="tc.preheatingTemp" size="5">
+                            <input ng-model="tc.preheatingTempMin" size="3" placeholder="min">
+                            <input ng-model="tc.preheatingTempMax" size="3" placeholder="max"></label></div>
+                            <div><label> PreHT CP% : <input type="text" ng-model="tc.preheatingCP" size="5">
+                            <input ng-model="tc.preheatingCPMin" size="3" placeholder="min">
+                            <input ng-model="tc.preheatingCPMax" size="3" placeholder="max"></label></div>
                             <div><label> PreHT Time : <input type="text" ng-model="tc.preheatingTime"></label></div>
                         </div>
                         <div class="col-md-3">
                             <legend>Carburising/Carbonitriding</legend>
-                            <div><label> Carb-Act Temp : <input type="text" ng-model="tc.carbonActualTemp"></label></div>
-                            <div><label> Carb-Act CP% : <input type="text" ng-model="tc.carbonActualCP"></label></div>
+                            <div><label> Carb-Act Temp : <input type="text" ng-model="tc.carbonActualTemp" size="5">
+                            <input ng-model="tc.carbonActualTempMin" size="3" placeholder="min">
+                            <input ng-model="tc.carbonActualTempMax" size="3" placeholder="max"></label></div>
+                            <div><label> Carb-Act CP% : <input type="text" ng-model="tc.carbonActualCP" size="5">
+                            <input ng-model="tc.carbonActualCPMin" size="3" placeholder="min">
+                            <input ng-model="tc.carbonActualCPMax" size="3" placeholder="max"></label></div>
                             <div><label> Carb-Act Time : <input type="text" ng-model="tc.carbonActualTime"></label>
 
                             </div>
                             <div><label> Carb-Diff : <input type="text" ng-model="tc.carbonDiff"></label></div>
-                            <div><label> Carb-Diff Temp : <input type="text" ng-model="tc.carbonDiffTemp"></label></div>
-                            <div><label> Carb-Diff CP% : <input type="text" ng-model="tc.carbonDiffCP"></label></div>
+                            <div><label> Carb-Diff Temp : <input type="text" ng-model="tc.carbonDiffTemp" size="5">
+                            <input ng-model="tc.carbonDiffTempMin" size="3" placeholder="min">
+                            <input ng-model="tc.carbonDiffTempMax" size="3" placeholder="max"></label></div>
+                            <div><label> Carb-Diff CP% : <input type="text" ng-model="tc.carbonDiffCP" size="5">
+                            <input ng-model="tc.carbonDiffCPMin" size="3" placeholder="min">
+                            <input ng-model="tc.carbonDiffCPMax" size="3" placeholder="max"></label></div>
                             <div><label> Carb-Diff Time : <input type="text" ng-model="tc.carbonDiffTime"></label></div>
                         </div>
                         <div class="col-md-3">
                             <legend>Hardening</legend>
-                            <div><label> Temp : <input type="text" ng-model="tc.hardneningTemp"></label></div>
-                            <div><label> CP% : <input type="text" ng-model="tc.hardneningCP"></label></div>
+                            <div><label> Temp : <input type="text" ng-model="tc.hardneningTemp" size="5">
+                            <input ng-model="tc.hardneningTempMin" size="3" placeholder="min">
+                            <input ng-model="tc.hardneningTempMax" size="3" placeholder="max"></label></div>
+                            <div><label> CP% : <input type="text" ng-model="tc.hardneningCP" size="5">
+                            <input ng-model="tc.hardneningCPMin" size="3" placeholder="min">
+                            <input ng-model="tc.hardneningCPMax" size="3" placeholder="max"></label></div>
                             <div><label> Time : <input type="text" ng-model="tc.hardneningTime"></label></div>
                             <div><label> QOT Before : <input type="text" ng-model="tc.temperingQOTBefore"></label></div>
                             <div><label> QOT After : <input type="text" ng-model="tc.temperingQOTAfter"></label></div>
@@ -74,9 +90,13 @@
                         </div>
                         <div class="col-md-3">
                             <legend>Tempering</legend>
-                            <div><label> T1 Temp : <input type="text" ng-model="tc.temperingT1Temp"></label></div>
+                            <div><label> T1 Temp : <input type="text" ng-model="tc.temperingT1Temp" size="5">
+                            <input ng-model="tc.temperingT1TempMin" size="3" placeholder="min">
+                            <input ng-model="tc.temperingT1TempMax" size="3" placeholder="max"></label></div>
                             <div><label> T1 Time : <input type="text" ng-model="tc.temperingT1Time"></label></div>
-                            <div><label> T2 Temp : <input type="text" ng-model="tc.temperingT2Temp"></label></div>
+                            <div><label> T2 Temp : <input type="text" ng-model="tc.temperingT2Temp" size="5">
+                            <input ng-model="tc.temperingT2TempMin" size="3" placeholder="min">
+                            <input ng-model="tc.temperingT2TempMax" size="3" placeholder="max"></label></div>
                             <div><label> T2 Time : <input type="text" ng-model="tc.temperingT2Time"></label></div>
                         </div>
 
@@ -101,7 +121,7 @@
                         </div>
                         <div class="col-md-3">
                             <legend>Operator Info</legend>
-                            <div><label> Prepared By : <input type="text" ng-model="tc.inspectedBy"></label></div>
+                            <div><label> Checked By : <input type="text" ng-model="tc.inspectedBy"></label></div>
                             <div><label> Approved By : <input type="text" ng-model="tc.approvedBy"></label></div>
                         </div>
                         <div class="col-md-3">
